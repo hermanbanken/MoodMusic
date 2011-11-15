@@ -14,3 +14,20 @@ Filter tweets that are positive
 Make a ranking of most positive/most mentioned artists + songs	
 -----
 Make a site on which pictures and tweets of disasters are given (in realtime).
+
+
+
+Uitvoerideen:
+
+Data van twitter halen:
+In batches, zodat alleen nieuwe data gesynced hoeft te worden.
+
+
+Moodmusic on spotify
+
+Mood->Styles->music
+
+Data of types of people and which mood they associate with which style
+
+Moods linked to Genres:
+http://musicbymood.aishakaliel.com/songresults.php
