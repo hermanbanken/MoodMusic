@@ -1,0 +1,18 @@
+Global idea: Associate a number with a mood so that a playlist can be formed according to the users mode.
+This can be done by analyzing a song and make a profile containing BPM high/low frequencies etc. (also look at metadata)
+
+
+In case of neural network:
+input	: song profile
+output	: mood associated with the song
+Use a training set in which profiles are linked to moods.
+Link the obtained neural network to spotify to associate a mood to all numbers people listen to. (goal is to pass all the songs through the neural network)
+
+In case of fuzzy expert system:
+input	: song profile
+output	: mood associated with the song
+Define a sets of rules on the song profile features, eg: 
+if BPM is low then mood is happy u0.2
+Obtain a mood using the set of rules
+
+ 

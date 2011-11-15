@@ -1,0 +1,31 @@
+paper-1:
+	Feature Selection Method for Music Mood Score Detection 
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5775562&tag=1
+paper-2: 
+	Music Information Retrieval by Detecting Mood via Computational Media
+	Aesthetics
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1241199
+paper-3: 
+	Music Ontology for Mood and Situation Reasoning
+	to Support Music Retrieval and Recommendation
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4782893
+paper-4:
+	Mood-based navigation through large collections of
+	musical data
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1405146
+paper-5:
+	Automatic Mood Detection and Tracking
+	of Music Audio Signals
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1561259
+paper-6:
+	Extraction of Emotional Content from Music Data
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4557880
+paper-7:
+	Music Emotion Annotation by Machine Learning
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4665144
+paper-8:
+	Acquiring Mood Information from Songs in Large Music Database
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5331338
+paper-9:
+	Automatic Music Emotion Classification Using a New Classification Algorithm
+	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5368855
