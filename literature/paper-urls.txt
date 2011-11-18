@@ -29,3 +29,6 @@ paper-8:
 paper-9:
 	Automatic Music Emotion Classification Using a New Classification Algorithm
 	http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5368855
+paper-a:
+	EXPLORING MOOD METADATA: RELATIONSHIPS WITH GENRE, ARTIST AND USAGE METADATA
+	http://ismir2007.ismir.net/proceedings/ISMIR2007_p067_hu.pdf
