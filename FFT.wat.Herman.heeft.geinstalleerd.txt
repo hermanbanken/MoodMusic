@@ -1,0 +1,5 @@
+- FFTW van http://www.fftw.org/download.html
+- FFTW JavaWrapper uit ftp://ftp.fftw.org/pub/fftw/jfftw-1.2.zip
+
+Na lezen http://stackoverflow.com/questions/86083/any-good-recommendations-for-mp3-sound-libraries-for-java
+- JLayer voor decoden MP3 http://www.javazoom.net/javalayer/sources.html
