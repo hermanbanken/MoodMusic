@@ -116,16 +116,7 @@ input#tracksearch{
 	border: 1px solid gray;
 	padding: 10px;
 	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
-}
-
-div#tracksearch input{
-	width: 100%;
-	height: 26px;
-	padding: 2px;
-	padding: 0;
-	border: none;
-	background: transparent;
-	padding-left: 10px;
+	margin-top: 5px;
 }
 
 input#tracksearch:focus{
@@ -139,6 +130,12 @@ a.play{
 
 a.play:hover{
 	text-decoration: underline;
+}
+
+input#analyzebutton{
+	width: 100px;
+	display: block;
+	margin: 10px 0 0 0;
 }
 
 /*autocomplete*/
@@ -171,3 +168,7 @@ autocomplete-w1 {
 	color:#42C0FB;
 }
 
+p{
+word-break: break-all;
+margin-top: 5px;
+}
