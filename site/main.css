@@ -108,7 +108,28 @@ hr{
 }
 
 div#content{
-	display:none;
+	margin: 10px 0 0 0;
+}
+
+input#tracksearch{
+	width: 280px;
+	border: 1px solid gray;
+	padding: 10px;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+div#tracksearch input{
+	width: 100%;
+	height: 26px;
+	padding: 2px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	padding-left: 10px;
+}
+
+input#tracksearch:focus{
+	outline: none;
 }
 
 a.play{
@@ -120,4 +141,33 @@ a.play:hover{
 	text-decoration: underline;
 }
 
+/*autocomplete*/
+autocomplete-w1 { 
+/*	height: auto;*/	
+}
+
+.autocomplete { 
+	overflow: auto;
+	background: white;
+	margin-top: 2px;
+	
+	border: 1px solid #999;
+	border-top: none; 
+	cursor: pointer;
+}
+
+.autocomplete .selected { 
+	background: rgba(66, 192, 251, 0.2); 
+}
+
+.autocomplete div { 
+	padding:2px 5px; 
+/*	white-space: nowrap; */
+	overflow: hidden; 
+}
+
+.autocomplete strong { 
+	font-weight:bold; 
+	color:#42C0FB;
+}
 
