@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm, graphicx}
+
+\begin{document}
+\title{Inferring song moods from lyrics}
+
+\author{Raluca-Elena PODIUC, Octavian VOICU, Diana GRATIE}
+\date{21 May 2010}
+\maketitle
+\begin{Abstract}
+Abstract. This paper has the purpose to examine and develop a classification of sentic states inferred by lyrics. Also it has the purpose to examine the relevance of the lyrics classification comparing to the mood inferred my the melody itself. The novelty of this experiment is the algorithm used to classify the lyrics using a mixture between data mining algorithms, machine learning and human experts.\end{abstract}
+\section{Introduction}
+There are several experiments in affective computing area that are called sentic experiences or emotion experiments. These experiments try to find out how can sentiments be identified and tagged correctly and automatically. From day to day life we know that certain emotions can be induced by music or by pictures. This was also demonstrated physiologically by the discovery of an intense activity in the limbic system during these experiences. If emotions can be induced from music what is the percentage of importance of lyrics if there is one? If the listener knows the language in which the lyrics are written than how much do they influence the emotion induced? Can a melody be tagged only by its lyrics? These are some questions that several researchers focus on.
+\subsection{Analysis of existing work}
+
+
+
+Few NLP systems have been developed for the multi-class emotion classification problem. Logan et al. [1] used latent semantic indexing of 15,589 pop lyrics by 399 artists for extracting genre. Polzin and Waibel [2] achieved 46.7% F-measure to classify 5,750 movie dialogue segments into 3 classes (neutral, angry, sad). Devillers et al. [3] reported 67.3% accuracy with 5 categories (anger, fear, satisfaction, excuse, neutral) using unigrams with stemming and compounding. Schuller et al. [4] used Bayesian belief networks to determine whether an automobile-task dialog
+was emotional, and if so categorized it by 6 primary emotions.
+The research reported in the emotion extraction in music lyrics is by Ogihara [5]. He used lyrics for identifying clusters of 45 artists and 55 albums (such as Carly Simon, James Taylor, Joni Mitchell, Suzanne Vega etc). Accuracy of lyrics was comparable with using sound (0.635 vs.
+0.685), as was precision (0.572 vs. 0.654) and recall (0.622 vs. 0.714). The F-measure for lyrics (0.602) was comparable to that of sound (0.669).
+\section{Proposed approach}
+\includegraphics[width=120mm,height=100mm]{usecase.png}
+
+The novelty of our experiment is the mixture between several models of approaching this matter. As we mentioned before the option we have in mind is to develop a system that has a supervised learning behavior. The classification is done by using data mining algorithms and also can be done by human factor.
+Lyrical text is distinct from ordinary text in the use of stylistic qualities such as rhyme, poetic form, and figurative language. Song lyrics help to focus the listener's attention on specific emotions. Psychologists have interpreted the affective value of words, based upon empirical surveys and expert judgments. Measurement scales were created to quantify the verbal reports of psychological state according to how many and which dimensions (e.g. intensity, valence, and dominance). A variety of ratings scales for affective words were developed, and documents were rated by summing the ratings of individual words.
+Our application tags songs by lyrics using the following steps.
+First of all we have to create a corpus of tagged lyrics. In order to tag these lyrics we have to parse the text for each keyword. Each keyword in the training set will be tagged as positive or negative by the number of appearances of that word in positive or negative tagged songs. There are several classifiers for words, prepositions, conjunctions and other links in phrase that are considered to be forever disposable. Words like nouns could or may not have values in the context of our applications. For example, the word “car” can be considered never having a relevant importance because cannot be associated with a mood.
+Second step, the tagging of the test data, is done following the next steps.
+Parsing step
+The parsing is done following the next criteria:
+First of all one key word is more like a sequence of keywords because there are certain ads that can
+change the polarity of it. These words are called modifiers.
+
+\section{Software Architecture}
+The software architecture is the simplest we could think of. First of all we have chosen the safest but also slowest language nowadays, Java. Also we consider that portability should be very important for this application so Java has another plus. Next to it there are several structures of data in java that match our application. Our intention is also to integrate an R language module but this is just a proposal. In the first release of this application we will consider only java modules.
+The test phase is constructed using the same parsing class but with an adjustment. The importance of two aspects are underlined here and implemented if applicable. First of all a great importance is given to the refrain. We consider that, if the refrain exists than these contain the main idea of the song and the mood should be induced according to it. In this case an extra weight is applied to the keywords by adding an extra polarity to it.
+Another very important aspect is the words found in front of the key word. These can change the chosen polarity. If for example we have a negation the polarity taken in consideration would be the negative one from the word base. If also an augmentation is found than the polarity will get an extra weight by doubling it.
+We also used a stemmer in order to have only base wards and to have a coherence in the database. 
+Another important step is to extract the stop wards that have no relevance to our tagging. This is done by removing all the words found in the lyrics that match the file with the stopwards.
+Next step in our project was to automatize the process of enlarging our data base.This was done useing the allMusic database and the tagging done there. 
+
+In tagging we also use the feedback of teh user. For example is we tag a song incorectly than the user can retag it. The song is automatically retagged and used as training data.
+\section{Conclusion}
+
+We expect in the worst case to obtain results at least as good as the result described in the paper “Sentiment Vector Space Model for Lyric-based Song Sentiment Classification”[] that is an accuracy of 0.78 % but much efficient than in that case because our algorithm has a greater performance/cost ratio comparing to the solutions proposed until now.
+In the future this experiment will have a greater accuracy by mood classification according to Russel’s model of mood. Also the application will be supported on web in order to become a collaborative application.
+A very interesting comparison that this project has as goal is to compare the accuracy of the melody compared to the lyrics.
+
+
+\section{References}
+\begin{itemize}
+\item B. Logan, D. P.W. Ellis, and A. Berenzweig. \textit{Toward evaluation techniques for music similarity. In Proceed-
+ings of The 4th International Conference on Music Information Retrieval}, pages 81–85, 2003.
+\item  POLZIN, T. AND WAIBEL, A. 2000. \textit {Emotion-sensitive human-computer interfaces. In Proceedings of the ISCA-Workshop on Speech and Emotion.}
+\item DEVILLERS, L., VASILESCU, I., AND LAMEL, L. \textit {Annotation and detection of emotion in a task-oriented human-human dialog corpus. In Proceedings of ISLE Workshop.}
+\item SCHULLER, B., RIGOLL, G., AND LANG, M. \textit {Speech emotion recognition combining acoustic features and linguistic information in a hybrid support vector machine –belief network architecture. IEEE International Conference on Speech, Acoustics, and Signal Processing 2004.}
+\item OGIHARA, M. \textit {Data mining for studying large databases}
+\end{itemize}
+
+\end{document}
