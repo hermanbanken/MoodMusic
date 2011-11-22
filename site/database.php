@@ -81,5 +81,42 @@
 		}
 	}
 	
+	class IkeLyrDb {
+		const AGENT = "TUDelft IKE project";
+		
+		public static function curl($url){
+			$file = fopen ($url, "r");
+			if (!$file) {
+			    echo "<p>Unable to open remote file.\n";
+			    exit;
+			}
+			$total = array();
+			while (!feof ($file)) {
+			    $total[] = fgets ($file, 1024);
+			}
+			fclose($file);
+			
+			return $total;
+		}
+		
+		public static function getLyricsById($id){
+			$lyr = self::curl("http://www.lyrdb.com/getlyr.php?q=$id");
+			return implode('', $lyr);
+		}
+		
+		public static function getLyrics($artist, $track){
+			$url = "http://www.lyrdb.com/lookup.php?q=".urlencode($artist)."|".urlencode($track)."&for=match&agent=".IkeLyrDb::AGENT;
+			$lyrs = self::curl($url);
+			
+			while($line = next($lyrs)){
+				list($id, $song, $singer) = explode("\\", $line);
+				if($l = self::getLyricsById($id)){
+					return $l;
+				} 
+			}
+		}
+	}
+	
 	$ike = new IkeMusicDb();
+	var_dump( IkeLyrDb::getLyrics("Maroon 5", "This Love") );
 ?>
