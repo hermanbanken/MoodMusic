@@ -1,12 +1,21 @@
-$(function(){
+	$(function(){
 	var value;
 	var data;
 		
 	var defaulttext = "Type an artist or track";
 	$("#nojs").hide();
 	$("#content").show();
-	$("#container").draggable({ containment: 'parent' });
-	
+	$("#container").draggable({ 
+				containment: 'parent',
+				refreshPositions: true,
+				stop: function(event, ui) {
+
+	            },
+				start: function(event, ui) {
+
+	            }
+		});
+		
 	$("#tracksearch").attr("value", defaulttext);
 	$("#tracksearch").css("color","gray").css("font-style","italic");
 	$("#tracksearch").click(function(){ 
@@ -38,5 +47,10 @@ $(function(){
 		$("#container").append("<p>Analyze:<br>Track: "+window.value+"<br>Link: "+window.data+"</p>");
 		
 		//Analyze code here!
+	}
+	
+	function update(elem){
+		console.log("update")
+		elem.css("display","hidden").show("display","block");
 	}
 });

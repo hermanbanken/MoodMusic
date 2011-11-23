@@ -1,7 +1,6 @@
 <?php
 // error_reporting(0);
 require_once("libraries/metatune/config.php");
-
 $res = "noquery";
 
 if(isset($_GET["query"])){
@@ -33,6 +32,6 @@ if(isset($_GET["query"])){
 	} catch (MetaTuneException $ex) {
 		$res = "error";
 	}
-	echo json_encode($res);
 }
+echo json_encode($res);
 
