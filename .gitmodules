@@ -1,0 +1,3 @@
+[submodule "site/libraries/echonest"]
+	path = site/libraries/echonest
+	url = https://github.com/echonest/php-echonest-api.git
