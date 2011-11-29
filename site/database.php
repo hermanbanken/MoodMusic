@@ -14,7 +14,7 @@
 		private $db;
 		
 		public function __construct(){
-			if($this->db = new SQLiteDatabase('db1.sqlite', 0777, $error)){
+			if($this->db = new SQLiteDatabase('db4.sqlite', 0777, $error)){
 			//if($this->db = new MysqlDb('test', 0777, $error)){
 				$this->make_tables();
 			} else
@@ -79,18 +79,24 @@
 		}
 		
 		public function store_nestsong($id, $artist_id, $artist_name, $title, $audio_summary){
-			$this->db->query(sprintf(
+			$query = sprintf(
 				"INSERT INTO echonest (id, artist_id, artist_name, title) VALUES (
 								   	  '%s','%s',   	  '%s', 	   '%s');",
-				$id,
-				$artist_id,
-				$artist_name,
-				$title
-			));
+				sqlite_escape_string($id),
+				sqlite_escape_string($artist_id),
+				sqlite_escape_string($artist_name),
+				sqlite_escape_string($title)
+			);
+			if(!$this->db->query($query)) echo $query;
 			
 			$fields = array(); $values = array($id);
+			$i = 0;
 			foreach($audio_summary as $key => $feat){
-				$values[] = $feat;
+				if(in_array($i, array(0, 8, 9)))
+					$values[] = sqlite_escape_string($feat);
+				else
+					$values[] = $feat;
+				$i++;
 			}
 			
 			$query = vsprintf(
