@@ -1,0 +1,34 @@
+.circle {
+	height: 500px;
+	width: 500px;
+	-moz-border-radius: 250px;
+	-webkit-border-radius: 250px;
+	border-radius: 250px;
+	z-index: 98;
+}
+
+canvas#globe{
+	display: block;
+	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
+	background: rgba(1,1,1,0.2);
+	border: 1px solid gray;
+	z-index: 99;
+}
+
+div#site-container{
+	height: 500px;
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+	top: 10em;
+}
+
+div#warped{
+	color: white;
+	text-shadow: 0px 0px 5px #000;
+	
+	margin-left: -95px;
+	margin-top: -90px;
+	position: absolute;
+	z-index: 0;
+}
