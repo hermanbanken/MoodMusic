@@ -1,0 +1,38 @@
+.circle {
+	height: 500px;
+	width: 500px;
+	-moz-border-radius: 250px;
+	-webkit-border-radius: 250px;
+	border-radius: 250px;
+	z-index: 98;
+}
+
+div#upload{
+	display: block;
+	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
+	background: rgba(1,1,1,0.2);
+	border: 1px solid gray;
+	z-index: 99;
+	height: 500px;
+	width: 500px;
+}
+
+div#site-container{
+	height: 500px;
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+	top: 10em;
+}
+
+p{
+	margin-bottom: 10px;
+	text-align: center;
+	text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+ul{
+	list-style-type:none;
+	font-size: 16px;
+	margin: 20px;
+}
