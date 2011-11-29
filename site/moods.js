@@ -1,4 +1,5 @@
 $(function(){
+	
 $('#globe').tagcanvas({textColour : '#000000'});
 	if(!$('#globe').tagcanvas({
 		textColour : '#ffffff',
@@ -14,5 +15,11 @@ $('#globe').tagcanvas({textColour : '#000000'});
 	})) {
 		// TagCanvas failed to load
 		$('#myCanvasContainer').hide();
+	}
+	
+	var moods = ["happy", "angry","sad", "relaxing", "excited"];
+	
+	function moodbox(name, i){
+		var b = $("<div class='mood mood-"+name+" mood-"+i+"'></div>");
 	}
 });

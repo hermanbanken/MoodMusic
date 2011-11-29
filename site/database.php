@@ -1,10 +1,21 @@
 <?php 
 	// create table 'USERS' and insert sample data
+	class MysqlDb {
+		function __construct($db, $mode, &$error){
+			$this->c = mysql_connect('localhost', 'root', 'test');
+			mysql_select_db($db);
+		}
+		function query($q){
+			return mysql_query($q);
+		}
+	}
+	
 	class IkeMusicDb {
 		private $db;
 		
 		public function __construct(){
 			if($this->db = new SQLiteDatabase('db1.sqlite', 0777, $error)){
+			//if($this->db = new MysqlDb('test', 0777, $error)){
 				$this->make_tables();
 			} else
 				die("Error: ".$error);
@@ -25,6 +36,25 @@
 				value int(11),
 				date int(11),
 				PRIMARY KEY (id, feature))');
+			$q3 = $this->db->query('CREATE TABLE echonest (
+				id varchar(20), 
+				artist_id varchar(20),
+				artist_name varchar(50),
+				title varchar(50),
+				PRIMARY KEY (id))');
+			$q4 = $this->db->query('CREATE TABLE audio_summary (
+				echonest_id varchar(20), 
+				audiokey int(2),
+				mode int(1),
+				time_signature int(1),
+				duration decimal(20, 15),
+				loudness decimal(20, 15),
+				energy float,
+				tempo decimal(20, 15),
+				audio_md5 varchar(33),
+				analysis_url text,
+				danceability float,
+				PRIMARY KEY (echonest_id))');
 		}
 		
 		/* Params: 
@@ -46,6 +76,31 @@
 				json_encode($genres),
 				json_encode($data)
 			));
+		}
+		
+		public function store_nestsong($id, $artist_id, $artist_name, $title, $audio_summary){
+			$this->db->query(sprintf(
+				"INSERT INTO echonest (id, artist_id, artist_name, title) VALUES (
+								   	  '%s','%s',   	  '%s', 	   '%s');",
+				$id,
+				$artist_id,
+				$artist_name,
+				$title
+			));
+			
+			$fields = array(); $values = array($id);
+			foreach($audio_summary as $key => $feat){
+				$values[] = $feat;
+			}
+			
+			$query = vsprintf(
+				"INSERT INTO audio_summary (echonest_id, audiokey,mode,time_signature,duration,loudness,energy,tempo,audio_md5,analysis_url,danceability) VALUES (
+					'%s', %d, %d, %d, %f, %f, %f, %f, '%s', '%s', %f);",
+				$values
+			);
+			echo("<div>Inserting $artist_name - $title</div>");
+			$this->db->query($query);
+			flush();
 		}
 		
 		// Do direct query
@@ -117,6 +172,6 @@
 		}
 	}
 	
-	$ike = new IkeMusicDb();
-	var_dump( IkeLyrDb::getLyrics("Maroon 5", "This Love") );
+	//$ike = new IkeMusicDb();
+	//var_dump( IkeLyrDb::getLyrics("Maroon 5", "This Love") );
 ?>
