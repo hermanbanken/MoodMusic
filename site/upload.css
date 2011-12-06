@@ -7,7 +7,12 @@
 	z-index: 98;
 }
 
-div#upload{
+.dragging{
+	border: 3px dashed white ! important;
+	cursor: pointer;
+}
+
+div#upload-field{
 	display: block;
 	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
 	background: rgba(1,1,1,0.2);
@@ -35,4 +40,18 @@ ul{
 	list-style-type:none;
 	font-size: 16px;
 	margin: 20px;
+}
+
+a.delete{
+	float:right;
+}
+
+a.delete:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#submit{
+	float:right;
+	margin: 5px;
 }
