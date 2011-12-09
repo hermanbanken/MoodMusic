@@ -8,24 +8,23 @@
 	<link rel="stylesheet" href="main.css" type="text/css" charset="utf-8">
 	<link rel="stylesheet" href="upload.css" type="text/css" charset="utf-8">
 	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery-ui-1.8.16.custom.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="upload.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
+
 <body>
+
 	<div id="site-container">
-		<p>Please drag your audio files to the box below.</p>
-		<p id="status"></p>
 		<div id="upload-field">
-			<ul>
-			</ul>
+			<p id="status">Please drag your audio files to the box below.</p>
+			<div class="page">
+				<ul>
+				</ul>
+			</div>
+			<input id="submit" type="button" value="Upload ALL the songs!" />
+			<input id="cancel" type="button" value="Cancel" />
 		</div>
-		<div id="analyzing">
-			
-		</div>
-		<div id="done">
-			
-		</div>
-		<input id="submit" type="button" value="Upload ALL the songs!" />
 	</div>
 </body>
 </html>
