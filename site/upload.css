@@ -7,19 +7,20 @@
 	z-index: 98;
 }
 
-.dragging{
+.dragging .page{
 	border: 3px dashed white ! important;
 	cursor: pointer;
 }
 
-div#upload-field{
+div.page{
 	display: block;
 	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
 	background: rgba(1,1,1,0.2);
 	border: 1px solid gray;
 	z-index: 99;
-	height: 500px;
-	width: 500px;
+	height: 450px;
+	width: 450px;
+	padding: 25px;
 }
 
 div#site-container{
@@ -39,7 +40,12 @@ p{
 ul{
 	list-style-type:none;
 	font-size: 16px;
-	margin: 20px;
+}
+
+li span{
+	width: 400px;
+	display: block;
+	float: left;
 }
 
 a.delete{
@@ -51,7 +57,47 @@ a.delete:hover{
 	cursor: pointer;
 }
 
-#submit{
+#submit, #cancel, #sync{
 	float:right;
 	margin: 5px;
+}
+
+.progressbar{
+	width: 100%;
+	line-height: 20px;
+	text-align: center;
+	margin: 0 auto;
+	height: 20px;
+	border: 1px solid gray;
+	color: white;
+	text-shadow: 0px 0px 3px black;
+}
+
+.progressbar div{
+	background: rgba(0,0,0,0.8);
+	height: 100%;
+	width: 0%;
+}
+
+.progressbar span{
+	display: block;
+	text-align: center;
+	width: 450px;
+	position: absolute;
+	font-size: 12px;
+}
+
+h3{
+	font-weight: normal;
+	font-size: 16px;
+	margin: 5px;
+	text-shadow: 0px 0px 3px black;
+}
+
+h1{
+	font-weight: normal;
+	font-size: 25px;
+	margin: 5px;
+	text-shadow: 0px 0px 3px black;
+	text-align: center;
 }
