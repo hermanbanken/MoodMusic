@@ -1,12 +1,17 @@
 <?php 
 	// create table 'USERS' and insert sample data
 	class MysqlDb {
+		var $isMysql = true;
+		
 		function __construct($db, $mode, &$error){
-			$this->c = mysql_connect('localhost', 'root', 'test');
+			$this->c = mysql_connect('sql.ewi.tudelft.nl', 'ike', 'supermooi');
 			mysql_select_db($db);
 		}
 		function query($q){
 			return mysql_query($q);
+		}
+		function sqlite_fetch_object($result){
+			return mysql_fetch_object($result);
 		}
 	}
 	
@@ -14,15 +19,15 @@
 		private $db;
 		
 		public function __construct(){
-			if($this->db = new SQLiteDatabase('db4.sqlite', 0777, $error)){
-			//if($this->db = new MysqlDb('test', 0777, $error)){
+			if($this->db = new SQLiteDatabase('db5.sqlite', 0777, $error)){
+			//if($this->db = new MysqlDb('ike', 0777, $error)){
 				$this->make_tables();
 			} else
 				die("Error: ".$error);
 		}
 		
 		public function make_tables(){
-			$q1 = $this->db->query('CREATE TABLE music (
+			$q1 = @$this->db->query('CREATE TABLE music (
 				id varchar(30), 
 				artist varchar(50),
 				song varchar(50),
@@ -30,19 +35,20 @@
 				genres varchar(50),
 				additionaldata text,
 				PRIMARY KEY (id))');
-			$q2 = $this->db->query('CREATE TABLE features (
+			$q2 = @$this->db->query('CREATE TABLE features (
 				id varchar(30), 
 				feature varchar(50),
 				value int(11),
 				date int(11),
 				PRIMARY KEY (id, feature))');
-			$q3 = $this->db->query('CREATE TABLE echonest (
+			$q3 = @$this->db->query('CREATE TABLE echonest (
 				id varchar(20), 
 				artist_id varchar(20),
 				artist_name varchar(50),
 				title varchar(50),
-				PRIMARY KEY (id))');
-			$q4 = $this->db->query('CREATE TABLE audio_summary (
+				PRIMARY KEY (id),
+				CONSTRAINT song UNIQUE (artist_name, title))');
+			$q4 = @$this->db->query('CREATE TABLE audio_summary (
 				echonest_id varchar(20), 
 				audiokey int(2),
 				mode int(1),
@@ -54,6 +60,7 @@
 				audio_md5 varchar(33),
 				analysis_url text,
 				danceability float,
+				ike_mood varchar(200),
 				PRIMARY KEY (echonest_id))');
 		}
 		
@@ -66,7 +73,7 @@
 			$data - object{} additional data
 		*/
 		public function store_spotify($id, $artist, $song, $album, $genres, $data){
-			$this->db->query(sprintf(
+			@$this->db->query(sprintf(
 				"INSERT INTO music (id, artist, song, album, genres, additionaldata) VALUES (
 								   '%s','%s',   '%s', '%s',  '%s',   '%s');",
 				$id,
@@ -87,7 +94,7 @@
 				sqlite_escape_string($artist_name),
 				sqlite_escape_string($title)
 			);
-			if(!$this->db->query($query)) echo $query;
+			if(!@$this->db->query($query) && false) echo $query;
 			
 			$fields = array(); $values = array($id);
 			$i = 0;
@@ -104,14 +111,25 @@
 					'%s', %d, %d, %d, %f, %f, %f, %f, '%s', '%s', %f);",
 				$values
 			);
-			echo("<div>Inserting $artist_name - $title</div>");
-			$this->db->query($query);
+			if(!@$this->db->query($query) && false) echo $query;
 			flush();
+		}
+		
+		public function getNextSong(){
+			$result = $this->db->query("SELECT * FROM echonest, audio_summary WHERE echonest_id = id AND ike_mood IS NULL LIMIT 1");
+			return $result->fetchObject();
 		}
 		
 		// Do direct query
 		public function query($q){
 			return $this->db->query($q);
+		}
+		
+		public function fetch_object($result){
+			if($this->db->isMysql){
+				return mysql_fetch_object($result);
+			}else
+				return sqlite_fetch_object($result);
 		}
 		
 		public function store_feature($id, $feature, $value){

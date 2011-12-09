@@ -1,0 +1,79 @@
+.state {
+	border: 1px solid black;
+	background:green;
+}
+#current-state {
+	background:red;
+}
+
+* > .progress:last-child {
+	display:block;
+}
+.progress {
+	display:none;
+	background:green;
+	position:relative;
+	height:40px;
+}
+.progress h3 {
+	font-size: 13px;
+}
+
+.percentage {
+	position: absolute;
+	right: 75px;
+	top: 5px;
+	width:70px;
+	font-size: 2em;
+}
+.total {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width:70px;
+	font-size: 2em;
+}
+.progressbar {
+	width:100%;
+	height:50px;
+	border:1px solid #ddd;
+	background:#eee;
+	border-radius:5px;
+	box-shadow:0 0 5px black;
+	position:relative;
+	overflow:hidden;
+	opacity:1;
+	-webkit-transition: opacity 1s;
+}
+.progressbar, h2 {
+	opacity:1;
+	-webkit-transition: opacity 1s;
+}
+#barMoods.complete {
+	opacity:1;
+	height:50px;
+}
+.progressbar.complete, h2.complete {
+	opacity:0;
+	height:0;
+	margin:0;
+}
+
+.progressbar .done {
+	width:100%;
+	height:50px;
+	position:absolute;
+	left:-100%;
+	top:0;
+	background:green;
+}
+.progressbar .status {
+	position:absolute;
+	left: 50%;
+	width:300px;
+	margin-left:-150px;
+	top:0;
+	line-height:50px;
+	text-align:center;
+	z-index:400;
+}
