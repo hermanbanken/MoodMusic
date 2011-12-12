@@ -1,0 +1,21 @@
+.circle {
+	height: 350px;
+	width: 350px;
+	-moz-border-radius: 175px;
+	-webkit-border-radius: 175px;
+	border-radius: 175px;
+	z-index: 98;
+}
+
+canvas.globe{
+	display: block;
+	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
+	background: rgba(1,1,1,0.2);
+	border: 1px solid gray;
+	z-index: 99;
+}
+
+div#site-container{
+	height: 350px;
+	margin-top: -175px;
+}

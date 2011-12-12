@@ -187,7 +187,7 @@ $(function(){
 	
 	function setResult(file, type){	
 		if(type == "uploaded"){
-			$("li[name='"+file.index+"']", upload_field).html('Analyzing Audio... <img src="ajax-loader.gif" />');
+			$("li[name='"+file.index+"']", upload_field).html('Analyzing Audio... <img src="../images/ajax-loader.gif" />');
 		}else if(type == "analyzed"){
 			if(file.response.status.message == "Success"){
 				$("li[name='"+file.index+"']").html("Done uploading and analyzing "+file.response.track.title+" by "+file.response.track.artist);
@@ -195,7 +195,7 @@ $(function(){
 				$("li[name='"+file.index+"']").html("Analyzing failed: "+file.response.status.message);
 			}
 		}else if(type == "sync"){
-			$("li[name='"+file.index+"']", upload_field).html('Syncing results with database... <img src="ajax-loader.gif" />');
+			$("li[name='"+file.index+"']", upload_field).html('Syncing results with database... <img src="../images/ajax-loader.gif" />');
 		}
 	}
 	

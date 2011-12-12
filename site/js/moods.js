@@ -3,7 +3,7 @@ $(function(){
 $('#globe').tagcanvas({textColour : '#000000'});
 	if(!$('#globe').tagcanvas({
 		textColour : '#ffffff',
-		textHeight : 35,
+		textHeight : 25,
 		textFont : "Lucida Sans Unicode, sans-serif",
 		maxSpeed : 0.1,
 		outlineColour : "#ffffff",
