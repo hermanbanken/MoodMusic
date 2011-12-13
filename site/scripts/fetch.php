@@ -1,6 +1,8 @@
 <?php 
+	set_time_limit(0);
+	
 	define("APIKEY", "BWXBWVY34MOEXP2CG");
-	require_once 'libraries/echonest/lib/EchoNest/Autoloader.php';
+	require_once '../libraries/echonest/lib/EchoNest/Autoloader.php';
 	require_once 'database.php';
 	require_once 'socket.php';
 	
