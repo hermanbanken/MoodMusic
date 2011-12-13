@@ -7,15 +7,53 @@
 	z-index: 98;
 }
 
-canvas.globe{
+.globe{
 	display: block;
-	box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.8);
-	background: rgba(1,1,1,0.2);
+	box-shadow: 0 0 15px rgba(0,0,0,1), inset 0 0 50px rgba(50,50,50,1);
+	background: rgba(1,1,1,0.5);
 	border: 1px solid gray;
 	z-index: 99;
 }
 
 div#site-container{
 	height: 350px;
+	width: 724px;
 	margin-top: -175px;
+	border: 1px solid red;
+}
+
+div#player{
+	float: left;
+	margin-right: 20px;
+}
+
+#player #player-content{
+	margin: 0 auto;
+	margin-top: 70px;
+	height: 210px;
+	width: 270px;
+	text-align: center;
+}
+
+p#welcome{
+	margin-top: 120px;
+}
+
+#player #player-content h3{
+	font-size: 25px;
+	width: 100%;
+}
+
+#now-playing{
+	margin-top: 115px;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	color: gray;
+	font-style: italic;
 }
