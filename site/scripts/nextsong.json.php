@@ -7,11 +7,11 @@ require('database.php');
 $db = new IkeMusicDb();
 
 // Store PREVIOUS SONG
-if($_SERVER['REQUEST_METHOD'] == 'post'){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if(isset($_POST['remove'])){
-		$db->query("UPDATE audio_summary WHERE `id` = ".mysql_real_escape_string($_POST['id'])." SET `ike_mood` = '-1'");
+		$db->query("UPDATE audio_summary SET ike_mood = '-1' WHERE echonest_id = '".$_POST['id']."'");
 	}else{
-		$db->query("UPDATE audio_summary WHERE `id` = ".mysql_real_escape_string($_POST['id'])." SET `ike_mood` = '".mysql_real_escape_string($_POST['mood'])."'");
+		$db->query("UPDATE audio_summary SET ike_mood = '".$_POST['mood']."' WHERE echonest_id = '".$_POST['id']."'");
 	}
 }
 
