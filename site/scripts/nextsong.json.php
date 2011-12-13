@@ -5,10 +5,19 @@ define("APIKEY", "BWXBWVY34MOEXP2CG");
 require('database.php');
 
 $db = new IkeMusicDb();
+
+// Store PREVIOUS SONG
+if($_SERVER['REQUEST_METHOD'] == 'post'){
+	if(isset($_POST['remove'])){
+		$db->query("UPDATE audio_summary WHERE `id` = ".mysql_real_escape_string($_POST['id'])." SET `ike_mood` = '-1'");
+	}else{
+		$db->query("UPDATE audio_summary WHERE `id` = ".mysql_real_escape_string($_POST['id'])." SET `ike_mood` = '".mysql_real_escape_string($_POST['mood'])."'");
+	}
+}
+
+// Fetch NEXT SONG
 $song = $db->getNextSong();
 $id = $song->{'echonest.id'};
-$uri = "http://developer.echonest.com/api/v4/song/profile?api_key=".APIKEY."&format=json&results=1&id=".$id."&bucket=id:7digital-US&bucket=tracks";
-$song->{'profile'} = json_decode(file_get_contents($uri));
 
 echo json_encode($song);
 ?>
