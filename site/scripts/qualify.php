@@ -1,5 +1,5 @@
 <?php if($_SERVER['REQUEST_METHOD'] == 'post'){
-	echo $_POST['id']
+	echo $_POST['id'];
 	echo $_POST['mood'];
 } else { ?>
 <div>
@@ -25,6 +25,10 @@
 				$('.features').append("<tr><th>"+n+"</th><td>"+song[n]+"</td></tr>");
 			}
 			$("#do-store").click(store);
+			
+			$.get('https://gdata.youtube.com/feeds/api/videos?q='+song['echonest.artist_name']+'+'+song['echonest.title']+'&alt=json', function(ret){
+				console.log(ret);
+			});
 		});
 	</script>
 </div>

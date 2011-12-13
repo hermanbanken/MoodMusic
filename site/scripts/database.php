@@ -19,7 +19,7 @@
 		private $db;
 		
 		public function __construct(){
-			if($this->db = new SQLiteDatabase('db5.sqlite', 0777, $error)){
+			if($this->db = new SQLiteDatabase('../db5.sqlite', 0777, $error)){
 			//if($this->db = new MysqlDb('ike', 0777, $error)){
 				$this->make_tables();
 			} else
