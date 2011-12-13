@@ -4,7 +4,7 @@ $(function(){
 		files  				= new Object(),			//Object to store all files
 		default_status 		= "Please drag your audio files to the box below.",	//Default status message
 		xhr,
-		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&filetype=";
+		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&bucket=audio_summary&filetype=";
 		
 	//Check if the required API's are available
 	if (typeof window.FileReader == undefined || typeof window.FormData == undefined) {
@@ -221,7 +221,13 @@ $(function(){
 	//Sync teh results with our database
 	function syncResult(file){
 		setResult(file, 'sync');
+		
+		//Pass results through the MLFFNN
+		
+		
 		console.log("SyncResult:",file);
+		
+		
 		
 		setTimeout(function(){
 			setResult(file, 'analyzed');
