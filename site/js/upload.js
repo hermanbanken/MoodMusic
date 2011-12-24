@@ -4,7 +4,9 @@ $(function(){
 		files  				= new Object(),			//Object to store all files
 		default_status 		= "Please drag your audio files to the box below.",	//Default status message
 		xhr,
-		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&bucket=audio_summary&filetype=";
+		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&bucket=audio_summary&filetype=",
+		NN = new brain.NeuralNetwork();
+		
 		
 	//Check if the required API's are available
 	if (typeof window.FileReader == undefined || typeof window.FormData == undefined) {
@@ -18,9 +20,20 @@ $(function(){
 	    drop	 : getFiles 
 	});
 	
-	$("#submit").click(initUpload);
+	$("#submit").attr("disabled","true");
 	$("#cancel").click(cancelUpload);
 	$("#cancel").attr("disabled","true");
+	
+	//Load the neural network from the DB
+	$.ajax({
+		url: "../scripts/neuralnetwork.txt",
+		success: function(e){ 
+			NN.fromJSON($.parseJSON(e));
+			$("#submit").click(initUpload);
+			$("#submit").removeAttr("disabled");
+			console.log("load network");
+		}
+	})
 	
 	//Functions
 	//Set a status message
@@ -196,7 +209,10 @@ $(function(){
 			}
 		}else if(type == "sync"){
 			$("li[name='"+file.index+"']", upload_field).html('Syncing results with database... <img src="../images/ajax-loader.gif" />');
+		}else if(type == "nn"){
+			$("li[name='"+file.index+"']", upload_field).html('Passing through Neural Network... <img src="../images/ajax-loader.gif" />');
 		}
+		
 	}
 	
 	function leaveMessage(on){
@@ -218,20 +234,31 @@ $(function(){
 		}
 	}
 	
+
+	
 	//Sync teh results with our database
 	function syncResult(file){
-		setResult(file, 'sync');
+		setResult(file, 'nn');
 		
 		//Pass results through the MLFFNN
+		console.log(file);
+		as = file.response.track.audio_summary;
+		console.log(as);
 		
+		res = NN.run({audiokey: as.key/11, mode: as.mode, time_signature: as.time_signature, loudness: (as.loudness+100)/200, energy: as.energy, tempo: as.tempo/500, danceability: as.danceability});
 		
-		console.log("SyncResult:",file);
+		setResult(file, 'sync');
 		
-		
-		
-		setTimeout(function(){
-			setResult(file, 'analyzed');
-		},3000);
+		console.log(JSON.stringify(file));
+		console.log(JSON.stringify(res));
+				
+		$.ajax({
+			type: "POST",
+			url: "../scripts/savemood.php", 
+			data: {"song": JSON.stringify(file), "result": JSON.stringify(res)}, 
+			success: function(e){setResult(file, 'analyzed'); console.log(e)}
+		});
+					
 	}
 	
 });
