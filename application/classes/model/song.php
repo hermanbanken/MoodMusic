@@ -1,5 +1,5 @@
 <?php
-class Song_Model extends ORM {
+class Model_Song extends ORM {
 	public $spotify_id;
 	public $echonest_id;
 	

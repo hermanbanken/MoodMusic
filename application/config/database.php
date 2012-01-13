@@ -18,7 +18,7 @@ return array
 			 *
 			 * Ports and sockets may be appended to the hostname.
 			 */
-			'hostname'   => 'sql.ewi.tudelft.nl',
+			'hostname'   => 'vps1.bluecode.nl',
 			'database'   => 'ike',
 			'username'   => 'ike',
 			'password'   => 'supermooi',

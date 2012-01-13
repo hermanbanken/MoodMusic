@@ -1,5 +1,5 @@
 <?php
-class Role_Model extends ORM {
+class Model_Role extends ORM {
     protected $has_and_belongs_to_many = array('users');
  
 	public function unique_key($id = NULL)
