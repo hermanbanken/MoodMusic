@@ -1,3 +1,6 @@
 [submodule "oud/site/libraries/echonest"]
 	path = oud/site/libraries/echonest
 	url = https://github.com/echonest/php-echonest-api.git
+[submodule "kohana"]
+	path = kohana
+	url = https://github.com/kohana/core.git
