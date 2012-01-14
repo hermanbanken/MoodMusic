@@ -4,7 +4,10 @@ class Controller_Welcome extends Controller {
 
 	public function action_index()
 	{
-		$this->response->body('hello, world!');
+		$this->response->body(	
+			'hello, world!<br />Songs via '.
+		 	HTML::anchor('/song/list', '/song/list').
+			'<br />Individual songs via '. HTML::anchor('/song/id/102', '/song/id/<id>'));
 	}
 
 } // End Welcome

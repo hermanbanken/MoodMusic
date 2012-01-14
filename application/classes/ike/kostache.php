@@ -67,7 +67,10 @@ class Ike_Kostache extends Kostache {
 		}
 		return $instance;
 	}
-	
+	public function render(){
+		echo "Rendering";
+		return parent::render();
+	}
 	/*public function render(){
 		// Add page layout
 		if ( Request::current()->is_initial() ) {

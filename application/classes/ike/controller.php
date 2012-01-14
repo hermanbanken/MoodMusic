@@ -36,7 +36,9 @@ abstract class Ike_Controller extends Controller {
 				$this->response->body( (string) $this->response->view );
 			}
 		}
-		echo Debug::vars($this->template);
+		echo $this->response->body( (string) $this->response->view );
+		var_dump($this->response->view->render());
+		//echo Debug::vars($this->template);
 		
 		parent::after();
 	}
