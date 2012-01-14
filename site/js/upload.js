@@ -269,7 +269,7 @@ $(function(){
 		//Pass the results through the Neural Network
 		setResult(index, "nn");
 		as = file.response.track.audio_summary;
-		res = NN.run({audiokey: as.key/11, mode: as.mode, time_signature: as.time_signature, loudness: (as.loudness+100)/200, energy: as.energy, tempo: as.tempo/500, danceability: as.danceability});
+		res = NN.run({"audiokey": as.key/11, "mode": as.mode, "time_signature": as.time_signature, "loudness": (as.loudness+100)/200, "energy": as.energy, "tempo": as.tempo/500, "danceability": as.danceability});
 			
 		//Sync the results with the database
 		setResult(index, 'sync');
@@ -281,7 +281,6 @@ $(function(){
 			success: function(e){
 				//Done syncing with DB
 				setResult(index, 'success', file);
-				console.log(e);
 			}
 		});
 	}

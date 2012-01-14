@@ -11,7 +11,7 @@ $(function(){
 		//Make a new neural network that can be trained
 		var NN = new brain.NeuralNetwork();
 		//Train the neural network
-		NN.train($.parseJSON(trainingset));
+		NN.train(trainingset);
 		//Save the neural network to a t
 		saveNN(NN);
 	}
@@ -21,7 +21,7 @@ $(function(){
 		$.ajax({
 			type: "POST",
 			url: "../php/save.php?mode=neuralnetwork",
-			data: NN.toJSON(),
+			data: {"network": JSON.stringify(NN.toJSON())},
 			success: function(e){
 				$("#status").html("Done training the network");
 			}
