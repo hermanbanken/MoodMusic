@@ -1,6 +1,6 @@
 <?php
 
-class View_Extended extends Kostache {
+class Ike_Kostache extends Kostache {
 	const dynamic_function_regex = "/^(?<func>_[a-z]+)(?<params>_[a-z0-9\-\_]+)$/";
 	const dynamic_variable_regex = "/_(?<var>[a-z0-9\-]+)/";
 	private $_date_full;
@@ -60,12 +60,6 @@ class View_Extended extends Kostache {
 		return $_GET[$params[0]];
 	}
 	
-	public function renderTemplate($name){
-		if(file_exists("templates/$name.mustache")){
-			return $this->render(file_get_contents("templates/$name.mustache"));
-		} else return "Template $name not found";
-	}
-	
 	public function fromModel($model){
 		$instance = $this;
 		foreach($model as $key => $value){
@@ -73,6 +67,17 @@ class View_Extended extends Kostache {
 		}
 		return $instance;
 	}
+	
+	/*public function render(){
+		// Add page layout
+		if ( Request::current()->is_initial() ) {
+			return parent::render();
+		} elseif( Request::initial()->param('accept') === 'json' ) {
+			
+		} elseif( Request::initial()->param('accept') === 'hmvc' ) {
+
+		}
+	}*/
 }
 
 class DateTime_Diff extends DateTime {

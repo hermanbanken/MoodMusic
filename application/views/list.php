@@ -1,7 +1,5 @@
 <?php
-require APPPATH.'/views/extended.php';
-
-class View_List extends View_Extended {
+class View_List extends Kostache {
 	public $items = array();
 	public function add($item){ 
 		$this->items[] = $item;
