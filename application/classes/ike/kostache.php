@@ -1,9 +1,9 @@
 <?php
-
 class Ike_Kostache extends Kostache {
 	const dynamic_function_regex = "/^(?<func>_[a-z]+)(?<params>_[a-z0-9\-\_]+)$/";
 	const dynamic_variable_regex = "/_(?<var>[a-z0-9\-]+)/";
 	private $_date_full;
+	protected $_model;
 	
 	public function __get($name){
 		// Smart function call
@@ -41,7 +41,7 @@ class Ike_Kostache extends Kostache {
 			case 'date':
 				return date("Y-m-d H:i:s", $val);
 			case 'ago':
-				$dd = new DateTime_Diff("@$val");
+				$dd = new Datetime_Diff("@$val");
 				return $dd;
 			default: return $val;
 		}		
@@ -60,16 +60,11 @@ class Ike_Kostache extends Kostache {
 		return $_GET[$params[0]];
 	}
 	
-	public function fromModel($model){
-		$instance = $this;
-		foreach($model as $key => $value){
-			$instance->{$key} = $value;
+	public function model($model = array()){
+		foreach($model as $k => $v){
+			$this->{$k} = $v;
 		}
-		return $instance;
-	}
-	public function render(){
-		echo "Rendering";
-		return parent::render();
+		return $this;
 	}
 	/*public function render(){
 		// Add page layout
@@ -81,51 +76,5 @@ class Ike_Kostache extends Kostache {
 
 		}
 	}*/
-}
-
-class DateTime_Diff extends DateTime {
-    
-    protected $strings = array(
-        'y' => array('1 year ago', '%d years ago'),
-        'm' => array('1 month ago', '%d months ago'),
-        'd' => array('1 day ago', '%d days ago'),
-        'h' => array('1 hour ago', '%d hours ago'),
-        'i' => array('1 minute ago', '%d minutes ago'),
-        's' => array('now', '%d seconds ago'),
-    );
-    
-    /**
-     * Returns the difference from the current time in the format X time ago
-     * @return string
-     */
-    public function __toString() {
-        $now = new DateTime('now');
-        $diff = $this->diff($now);
-        
-        foreach($this->strings as $key => $value){
-            if( ($text = $this->getDiffText($key, $diff)) ){
-                return $text;
-            }
-        }
-        return '';
-    }
-    
-    /**
-     * Try to construct the time diff text with the specified interval key
-     * @param string $intervalKey A value of: [y,m,d,h,i,s]
-     * @param DateInterval $diff
-     * @return string|null
-     */
-    protected function getDiffText($intervalKey, $diff){
-        $pluralKey = 1;
-        $value = $diff->$intervalKey;
-        if($value > 0){
-            if($value < 2){
-                $pluralKey = 0;
-            }
-            return sprintf($this->strings[$intervalKey][$pluralKey], $value);
-        }
-        return null;
-    }
 }
 ?>

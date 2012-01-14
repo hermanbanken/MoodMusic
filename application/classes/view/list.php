@@ -1,5 +1,5 @@
 <?php
-class View_List extends Kostache {
+class View_List extends Ike_Kostache {
 	public $items = array();
 	public function add($item){ 
 		$this->items[] = $item;

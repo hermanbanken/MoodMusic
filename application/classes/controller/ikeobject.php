@@ -7,7 +7,7 @@ abstract class Controller_Ikeobject extends Ike_Controller {
 	}
 	
 	public function action_id(){
-		$object = ORM::factory($this->classname)->where('id', '=', $this->request->param('id'))->find();
+		$object = ORM::factory($this->classname)->where($this->classname.'.id', '=', $this->request->param('id'))->find();
 		if($object->loaded())
 			$this->_single($object);
 		else throw new HTTP_Exception_404("Unable to find :class :id", array(":class"=>$this->classname, ":id"=>$this->request->param('id')));
@@ -28,11 +28,11 @@ abstract class Controller_Ikeobject extends Ike_Controller {
 	}
 	
 	public function _single($object){
-		$this->response->view = View::factory($this->classname);
-		$this->response->view->model = $object;
+		$this->response->view = Kostache::factory($this->classname);
+		$this->response->view->model($object->as_array());
 	}
 	public function _list($items){
-		$this->response->view = View::factory('list', array('item'=>$this->classname));
+		$this->response->view = Kostache::factory('list', array('item'=>$this->classname));
 		$this->response->view->items = $items;
 	}
 }
