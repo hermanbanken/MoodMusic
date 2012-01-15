@@ -103,6 +103,9 @@ else if($_GET['mode'] == "training")
 	$escape_id			= mysql_real_escape_string($_POST['id']);
 	$escape_mood		= mysql_real_escape_string($_POST['mood']);
 	
+	//Update other moods to less
+	mysql_query("UPDATE `audio_moods` SET `rating`=`rating`*0.6 WHERE `echonest_id`='".$escape_id."' AND `by_person`='1' AND `mood`<>'".$escape_mood."'");
+	
 	//Add mood to database
 	mysql_query("INSERT INTO `audio_moods` VALUES ('".$escape_id."','".$escape_mood."','1','1')");
 }
