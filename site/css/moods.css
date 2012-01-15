@@ -1,12 +1,3 @@
-#site-container{
-	width: 800px;
-	height: 610px;
-	margin: 0 auto;
-	position: relative;
-	top: 50%;
-	margin-top: -305px;
-}
-
 select#moods{
 	height: 50px;
 	width: 780px;

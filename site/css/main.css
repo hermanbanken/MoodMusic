@@ -1,9 +1,12 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: "Arial";
+}
+
+html, body{
 	height: 100%;
 	width: 100%;
-	font-family: "Arial";
 }
 
 html{
@@ -12,4 +15,13 @@ html{
 	background: url('../resources/bg.jpg') no-repeat center center fixed;
 	background-size: cover;
 	position: absolute;
+}
+
+#site-container{
+	width: 800px;
+	height: 610px;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	margin-top: -305px;
 }

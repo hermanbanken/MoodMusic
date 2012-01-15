@@ -6,7 +6,7 @@
 <head>
 	<title>MoodMusic</title>
 	<link rel="stylesheet" href="../css/main.css" type="text/css" charset="utf-8">
-	<link rel="stylesheet" href="../css/upload.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="../css/qualify.css" type="text/css" charset="utf-8">
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/qualify.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -14,22 +14,23 @@
 
 <body>
 
-	<div id="site-container" class="page" style="width: 580px; height: 500px;">
+	<div id="site-container">
     	<div class='preview'>
-        	<span id="title"></span> - <span id="name"></span>
-        	<iframe id="ytvideo" width="560" height="315" src="http://www.youtube.com/embed/xiJThIUTvEw" frameborder="0" allowfullscreen></iframe>
+			<div id="song-heading">
+	        	<span id="title"></span> - <span id="name"></span>
+			</div>
+        	<iframe id="ytvideo" width="775" height="400" src="http://www.youtube.com/embed/xiJThIUTvEw" frameborder="0" allowfullscreen></iframe>
         </div>
 		<table class='features' style='display: none;'>
 		</table>
 		<div class='form'>
 			<input type='hidden' id='nest-id' name='id' />
-			<!-- <input class='moods' id='nest-mood'  name='moods' /> -->
 			<select id="moods">
 				<option value="loading">Loading moods</option>
 			</select>
+			<input type='button' value='Opslaan' id='do-store' />
+			<input type='button' value='Delete' id='do-delete' />
 		</div>
-		<input type='button' value='Opslaan' id='do-store' />
-        <input type='button' value='Delete' id='do-delete' />
 	</div>
 </body>
 </html>

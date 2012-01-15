@@ -1,0 +1,93 @@
+#site-container{
+}
+
+#upload-field-container{
+	width: 780px;
+	height: 550px;
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 10px;
+	background: rgba(0,0,0,0.2);
+}
+
+.dragging{
+	border: 2px dashed white ! important;
+	cursor: pointer;
+}
+
+div#upload-field{
+	text-align: center;
+	height: 400px;
+}
+
+#submit{
+	width: auto;
+}
+
+#cancel{
+	width: auto;
+}
+
+#buttons{
+	margin-top: 10px;
+	text-align: center;
+}
+
+ul{
+	list-style-type: none;
+	height: 550px;	
+}
+
+ul li{
+	text-align: left;
+	padding: 5px;
+}
+
+a.delete{
+	float: right;
+}
+
+a.delete:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#status{
+	width: 600px;
+	left: 50%;
+	margin-left: -315px;
+	position: absolute;
+	top: 220px;
+	padding: 15px;
+	background: rgba(255,255,255,0.4);
+	border-radius: 5px;
+	border: 2px solid white;
+}
+
+.progressbar{
+	height: 20px;
+	width: 770px;
+	line-height: 20px;
+	margin: 0 auto;
+	border: 1px solid white;
+	border-radius: 5px;
+	text-align: center;
+	background: rgba(255,255,255,0.2);
+}
+
+.progressbar div{
+	background: rgba(255,255,255,0.4);
+	height: 100%;
+	width: 0%;
+}
+
+.progressbar span{
+	position: absolute;
+	width: inherit;
+	font-size: 12px;
+	color: black;
+}
+
+hr{
+	margin: 5px;
+}

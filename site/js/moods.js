@@ -106,7 +106,6 @@ function feedbackMood(e){
 		data: {mood: feedback, id: currentId},
 		success: function(e){
 			setStatus("Your submission (<em>"+feedback+"</em>) has been registered, thanks for contributing!");
-			$("#feedback-moods").val(-1);
 		}
 	})
 }
@@ -132,6 +131,7 @@ function setStatus(status, permanent){
 
 //This function redraws all the occurences of the mood as text on the page (e.g: the current mood is: ... )
 function redrawMoods(mood){
-	$("#feedback-moods:first-child").remove();
-	$("#feedback-moods").html('<option value="-1">Doesn\'t this song have a '+mood+' mood? Please select it here!</option>')
+	//Remove the first entry
+	$("#feedback-moods").children().first().remove();
+	$("#feedback-moods").prepend('<option value="-1">Doesn\'t this song have a '+mood+' mood? Please select the correct mood here!</option>')
 }

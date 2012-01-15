@@ -3,15 +3,16 @@ $(function(){
 	//Declare variables
 	var upload_field 		= $('#upload-field'), 	//Cache upload field
 		files  				= new Object(),			//Object to store all files
-		default_status 		= "Please drag your audio files to the box below.",	//Default status message
+		default_status 		= "Drag the audio files that you want to add to the program into this box and press the 'Upload and Analyze' button",	//Default status message
 		xhr,
 		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&bucket=audio_summary&filetype=",
 		NN = new brain.NeuralNetwork();
 	
-	//The files are separated into two sections, the ones that are uploaded and analyzed, and the ones that are only locally linked
+	//The files are separated into three sections, the ones that are uploaded and analyzed, the oea that have failed and the ones that are only locally linked
 	files.local = new Object();
 	files.uploaded = new Object();
-	
+	files.failed = new Object();
+
 	//Check if the required API's are available
 	if (typeof window.FileReader == undefined || typeof window.FormData == undefined) {
 		setStatus("Your browser doesn't support the features required for this app. Please update your browser.", true);
@@ -21,18 +22,18 @@ $(function(){
 	disableSubmit();
 	disableCancel();
 	
-	//Bind the handlers (for interaction)
-	upload_field.bind({
-	    dragover : addDraggingStyle,
-	    dragend	 : removeDraggingStyle,
-	    drop	 : getFiles 
-	});
-	
 	//Load the text file that contains the neural network and read it into an object
 	$.ajax({
 		url: "../resources/neuralnetwork.txt",
 		success: function(e){ 
 			NN.fromJSON($.parseJSON(e));
+			
+			//Bind the handlers (for interaction)
+			upload_field.bind({
+			    dragover : addDraggingStyle,
+			    dragend	 : removeDraggingStyle,
+			    drop	 : getFiles 
+			});
 		},
 		error: function(e){
 			setStatus("The neural network could not be loaded.", true);
@@ -63,24 +64,28 @@ $(function(){
 
 	//Displays a message to the user for 1.5 seconds or permanently
 	function setStatus(status, permanent){
+		$("#status").hide();
 		$("#status").html(status);
+		$("#status").fadeIn();
 
 		if(!permanent){
 			setTimeout(function(){
-				$("#status").html(default_status);
+				$("#status").fadeOut(function(){
+					$("#status").html(default_status);
+				});
 			},1500);	
 		}
 	}
 
 	//Changes the appearance of the upload area when a file is dragged over
 	function addDraggingStyle(){
-		upload_field.addClass("dragging"); 
+		upload_field.parent().addClass("dragging"); 
 		return false;
 	}
 
 	//Changes the appearance back to normal when dragging outside of the upload field
 	function removeDraggingStyle(){
-		upload_field.removeClass("dragging"); 
+		upload_field.parent().removeClass("dragging"); 
 		return false;
 	}
 
@@ -143,20 +148,55 @@ $(function(){
 		//Delete the content in the upload field
 		$("ul", upload_field).html("");
 		
-		//Loop through all the files
-		for(index in files.local){
-			file = files.local[index];
-			
-			//Add the content
-			$("ul", upload_field).append("<li name=\""+index+"\"><span>"+file.name+"</span><a class=\"delete\">delete</a></li>");
+		//First add all failed files, then the finished files, then the local files
+		if(Object.keys(files.failed).length > 0){
+			for(index in files.failed){
+				file = files.failed[index];
 
-			//Bind the click handler for the delete button
-			$("ul li[name='"+index+"'] a.delete", upload_field).click(index, deleteFileHandler);
+				//Add the content
+				$("ul", upload_field).append("<li name=\"failed-"+index+"\">Failed to analyze <em>"+file.name+"</em></li>");
+			}
+
+			$("ul", upload_field).append("<hr>");
+		}
+		
+		if(Object.keys(files.uploaded).length > 0){
+			for(index in files.uploaded){
+				file = files.uploaded[index];
+			
+				//Add the content
+				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist+"</em></li>");
+			}
+		
+			$("ul", upload_field).append("<hr>");
+		}
+		
+		if(Object.keys(files.local).length > 0){
+			//Loop through all the files
+			for(index in files.local){
+				file = files.local[index];
+			
+				//Add the content
+				$("ul", upload_field).append("<li name=\""+index+"\"><span>"+file.name+"</span><a class=\"delete\">delete</a></li>");
+
+				//Bind the click handler for the delete button
+				$("ul li[name='"+index+"'] a.delete", upload_field).click(index, deleteFileHandler);
+			}
+			
+			//Remove the status
+			$("#status").fadeOut();
+			enableSubmit();
+			disableCancel();
+		}else{
+			$("#status").fadeIn();
+			disableSubmit();
+			disableCancel();
 		}
 	}
 	
 	//Start uploading the files to echonest
 	function startUpload(){
+		console.log("Start Upload");
 		//Ask the user if he or she wants to leave (and abort the upload process)
 		leaveMessage(true);
 		
@@ -184,6 +224,7 @@ $(function(){
 	//Upload the file to echonest
 	function upload(file, index){
 		if(file != undefined){
+			console.log("upload(",file,index,")");
 			var	url 	 = echonest_url + file.extension,
 				formData = new FormData();
 				
@@ -212,25 +253,33 @@ $(function(){
 
 				//Check if the analysis was successful
 				if(file.response.status.message == "Success"){
-					//move the file from the local to the uploaded section of the files object
-					newIndex = Object.keys(files.uploaded).length;
-					files.uploaded[newIndex] = files.local[index];
-					delete(files.local[index]);
-	
+					console.log("Uploaded and analyzed successfully!");
 					//Sync the results with the database
 					syncResult(file, index);
 				}else{
-					setResult(file, 'fail', index);
+					console.log("Uploading and analyzing FAILED");
+					files.failed[newIndex] = files.local[index];
+					delete(files.local[index]);
+					redrawUploadField();
 				}
-				startUpload();
 			}
 			
 			xhr.onabort = function(){
 				redrawUploadField();
 			}
 			
-			//Send the data
-			xhr.send(formData);
+			//Try to send the data
+			try{
+				xhr.send(formData);			
+			}catch(e){
+				//move the file from the local to the failed section of the files object
+				newIndex = Object.keys(files.uploaded).length;
+				files.failed[newIndex] = files.local[index];
+				delete(files.local[index]);
+				
+				redrawUploadField();
+				startUpload();
+			}
 		}
 	}
 	
@@ -251,12 +300,9 @@ $(function(){
 	
 	//Displays a message about the status of the current upload
 	function setResult(index, type, file){	
+		console.log("setResult: "+type,file);
 		if(type == "uploaded"){
 			$("li[name='"+index+"']", upload_field).html('Analyzing Audio... <img src="../resources/ajax-loader.gif" />');
-		}else if(type == "success"){
-			$("li[name='"+index+"']").html("Done uploading and analyzing "+file.response.track.title+" by "+file.response.track.artist);
-		}else if(type == "fail"){
-			$("li[name='"+index+"']").html("Analyzing failed: "+file.response.status.message);
 		}else if(type == "sync"){
 			$("li[name='"+index+"']", upload_field).html('Syncing results with database... <img src="../resources/ajax-loader.gif" />');
 		}else if(type == "nn"){
@@ -266,21 +312,39 @@ $(function(){
 	
 	//Save the results to the database
 	function syncResult(file, index){
+		console.log("syncResult(",file,index,")");
+		
 		//Pass the results through the Neural Network
-		setResult(index, "nn");
+		setResult(index, "nn", file);
 		as = file.response.track.audio_summary;
 		res = NN.run({"audiokey": as.key/11, "mode": as.mode, "time_signature": as.time_signature, "loudness": (as.loudness+100)/200, "energy": as.energy, "tempo": as.tempo/500, "danceability": as.danceability});
 			
 		//Sync the results with the database
-		setResult(index, 'sync');
+		setResult(index, 'sync', file);
 
 		$.ajax({
 			type: "POST",
 			url: "../php/save.php?mode=upload", 
 			data: {"res": res, "file": file.response.track},
-			success: function(e){
-				//Done syncing with DB
-				setResult(index, 'success', file);
+			success: function(e){ //Everything is done
+				console.log("Synced With DB");
+				
+				//move the file from the local to the uploaded section of the files object
+				newIndex = Object.keys(files.uploaded).length;
+				files.uploaded[newIndex] = files.local[index];
+				delete(files.local[index]);
+				
+				redrawUploadField();
+				startUpload();
+			},
+			error: function(e){
+				//move the file from the local to the failed section of the files object
+				newIndex = Object.keys(files.uploaded).length;
+				files.failed[newIndex] = files.local[index];
+				delete(files.local[index]);
+				
+				redrawUploadField();
+				startUpload();
 			}
 		});
 	}
