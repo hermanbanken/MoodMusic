@@ -8,7 +8,7 @@ $(function(){
 	
 	//Load the moods into a combobox
 	function populateCombobox(mds){
-		moods = JSON.parse(mds);
+		moods = mds;
 		
 		$("#moods").html("");
 		$("#feedback-moods").html("");
@@ -22,9 +22,8 @@ $(function(){
 	//Get a playlist with a certain mood
 	function getPlaylist(mood){
 		$.ajax({
-			type: "POST",
-			url: "../php/get.php?mode=playlist",
-			data: {"mood": mood},
+			type: "GET",
+			url: "../php/get.php?mode=playlist&mood="+mood,
 			success: function(e){
 				console.log(e);
 			}
