@@ -1,6 +1,12 @@
 <?php
 //Own settings
 define('MOOD_TRESHOLD', 0.7); //If the mood value is higher then the treshold return it
+define('MOOD_LIST', array( //The mood list
+		"happy",
+		"sad",
+		"cheerful",
+		"funny"
+		));
 
 //Database settings
 define('MYSQL_SERVER', 'vps1.bluecode.nl');

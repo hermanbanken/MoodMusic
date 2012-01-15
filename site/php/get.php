@@ -5,12 +5,10 @@ require_once('config.php');
 
 //Handle the request
 if($_GET['mode'] == "trainingset"){
-	//Get the different avaiable moods in the database
-	$query		= mysql_query("SELECT DISTINCT `mood` FROM `audio_moods`");
+	//Create the moods return set
 	$moods		= array();
-	
-	while($mood = mysql_fetch_assoc($query))
-		$moods[$mood['mood']]	= 0;
+	foreach(MOOD_LIST as $mood)
+		$moods[$mood]	= (float)0;
 
 	//Get all the mooded songs which are done by a person
 	$query		= mysql_query("SELECT DISTINCT `audio_moods`.`echonest_id`,`audiokey`,`mode`,`time_signature`,`loudness`,`energy`,`tempo`,`danceability` FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` WHERE `by_person`= '1'");
@@ -56,8 +54,7 @@ else if($_GET['mode'] == "training")
 }
 else if($_GET['mode'] == "moods"){
 	//Return a list of moods (JSON)
-	$moods			= array("happy", "sad", "cheerful", "BSA");
-	print json_encode($moods);
+	print json_encode(MOOD_LIST);
 }
 else if($_GET['mode'] = "playlist"){
 	//Return a playlist with a mood that is in $_POST['mood']
