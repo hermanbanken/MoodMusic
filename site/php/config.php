@@ -3,7 +3,7 @@
 define('MOOD_SAVETRIGGER', 0.8); //Add the mood if it is bigger then this value
 
 //Database settings
-define('MYSQL_SERVER', '127.0.0.1');
+define('MYSQL_SERVER', 'vps1.bluecode.nl');
 define('MYSQL_USERNAME', 'ike');
 define('MYSQL_PASSWORD', 'supermooi');
 define('MYSQL_DATABASE', 'ike');
