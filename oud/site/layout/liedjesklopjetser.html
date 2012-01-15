@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>MoodMusic</title>
+	<link rel="stylesheet" href="../stylesheets/main.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="../stylesheets/liedjesklopjetser.css" type="text/css" charset="utf-8">
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!--[if lte IE 6]><script src="../libraries/ie6/warning.js"></script><script>window.onload=function(){e("../libraries/ie6/")}</script><![endif]-->
+</head>
+
+<body>
+	<!-- <div id="container" class="page">
+		<h1><strong>Mood</strong>Music</h1>
+		<hr>
+		<div id="content">
+			Search for a track to analyze:
+			<input type="text" name="track" id="tracksearch" />
+			<div class="autocomplete-w1">
+						  <div style="" id="Autocomplete_1240430421731" class="autocomplete">
+						    <div><strong>Li</strong>beria</div>
+						    <div><strong>Li</strong>byan Arab Jamahiriya</div>
+						    <div><strong>Li</strong>echtenstein</div>
+						    <div class="selected"><strong>Li</strong>thuania</div>
+						  </div>
+						</div>
+		</div>
+		<input type="button" id="analyzebutton" value="analyze" disabled />
+	</div> -->
+	
+	<div id="site-container" class="page" style="width: 550px; height: 400px;">
+    	<div class='preview'>
+        	<span id="title"></span> - <span id="name"></span>
+        	<iframe id="ytvideo" width="560" height="315" src="http://www.youtube.com/embed/xiJThIUTvEw" frameborder="0" allowfullscreen></iframe>
+        </div>
+		<table class='features' style='display: none;'>
+		</table>
+		<div class='form'>
+			<input type='hidden' id='nest-id' name='id' />
+			<input class='moods' id='nest-mood'  name='moods' />
+		</div>
+		<input type='button' value='Opslaan' id='do-store' />
+        <input type='button' value='Delete' id='do-delete' />
+		<script>
+			function store_song(){
+				$.post('../scripts/nextsong.json.php', {id: $('#nest-id').val(), mood: $('#nest-mood').val()}, function(data) {
+					show_song(data);
+				});
+			}
+			
+			function delete_song(){
+				$.post('../scripts/nextsong.json.php', {id: $('#nest-id').val(), remove: "ok"}, function(data) {
+					show_song(data);
+				});
+			}
+			
+			function show_song(song){
+				$('.features').empty();
+				$('#nest-id').val(song['echonest.id']);
+				for(n in song){
+					$('.features').append("<tr><th>"+n+"</th><td>"+song[n]+"</td></tr>");
+				}
+				
+				$('#title').text(song['echonest.title']);
+				$("#name").text(song['echonest.artist_name']);
+				
+				$("#do-store").click(store_song);
+				$("#do-delete").click(delete_song);
+				
+				$.get('https://gdata.youtube.com/feeds/api/videos?q='+song['echonest.artist_name']+'+'+song['echonest.title']+'&alt=json', function(ret){
+					document.getElementById("ytvideo").src = "http://www.youtube.com/embed/"+ret.feed.entry[0].id.$t.replace("http://gdata.youtube.com/feeds/api/videos/","");
+
+				});
+			}
+
+			$.get('../scripts/nextsong.json.php', show_song);
+		</script>
+	</div>
+</body>
+</html>

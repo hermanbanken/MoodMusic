@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tracks xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns="http://www.spotify.com/ns/music/1">
+  <opensearch:Query role="request" startPage="1" searchTerms="dsa"/>
+  <opensearch:totalResults>13</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <track href="spotify:track:2O8hwqONfg6q60wKD11iqz">
+    <name>So La Ra Dsa</name>
+    <artist href="spotify:artist:4mqSjqlaPrDmYwKS1E9FTV">
+      <name>Lux</name>
+    </artist>
+    <id type="isrc">GBDEX0100009</id>
+    <album href="spotify:album:5twjzjSUeU6R3vEUNt9DPy">
+      <name>Northern Lights</name>
+      <released>2001</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>3</track-number>
+    <length>413.893000</length>
+    <popularity>0.21857</popularity>
+  </track>
+  <track href="spotify:track:3LWWCjfvR3eC46oqEL3Xmt">
+    <name>So La Ra Dsa</name>
+    <artist href="spotify:artist:4mqSjqlaPrDmYwKS1E9FTV">
+      <name>Lux</name>
+    </artist>
+    <id type="isrc">GBDLM0480002</id>
+    <album href="spotify:album:1Vp9d2R5ZDDvOX1YTbp3v7">
+      <name>Northern Lights</name>
+      <released>2005</released>
+      <availability>
+        <territories>worldwide</territories>
+      </availability>
+    </album>
+    <track-number>3</track-number>
+    <length>413.000000</length>
+    <popularity>0.06636</popularity>
+  </track>
+  <track href="spotify:track:3JmSLwqDSWlwiWO100Rq6G">
+    <name>D.S.A.</name>
+    <artist href="spotify:artist:4gdDeZB5seq8ww6h0oLFGa">
+      <name>Love 666</name>
+    </artist>
+    <id type="isrc">USA560446640</id>
+    <album href="spotify:album:1GqRnllGi2HTDSnHL0w56U">
+      <name>Please Kill Yourself So I Can Rock</name>
+      <released>1996</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>2</track-number>
+    <length>142.467000</length>
+    <popularity>0.03959</popularity>
+  </track>
+  <track href="spotify:track:39QJSpHjnAeRR8jFf8yvHX">
+    <name>D.S.A.</name>
+    <artist href="spotify:artist:45UWomyarJkjZS8dmrHQiq">
+      <name>Nomadejado</name>
+    </artist>
+    <id type="isrc">ES5300825214</id>
+    <album href="spotify:album:7JZ0HP7JMADuixq8mrgNJW">
+      <name>In Ictu Oculi</name>
+      <released>2009</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>2</track-number>
+    <length>288.573000</length>
+    <popularity>0.03796</popularity>
+  </track>
+  <track href="spotify:track:0tJcFIAl1UFn5AYBSiTHMB">
+    <name>D.S.A.</name>
+    <artist href="spotify:artist:4n6M2pHTyn3VzwNALEgEi2">
+      <name>Eleven Dollar Life</name>
+    </artist>
+    <id type="isrc">USA2P1139880</id>
+    <album href="spotify:album:29mAYRGh443UcZ9uHyBaZz">
+      <name>Shatter The Silence</name>
+      <released>2011</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>7</track-number>
+    <length>195.134000</length>
+    <popularity>0.01384</popularity>
+  </track>
+  <track href="spotify:track:0YEy9NIzB2dzyrYv7bcO1o">
+    <name>DSA</name>
+    <artist href="spotify:artist:4n6M2pHTyn3VzwNALEgEi2">
+      <name>Eleven Dollar Life</name>
+    </artist>
+    <id type="isrc">US42F0910239</id>
+    <album href="spotify:album:5tdxA7DXr5NinhOILFo3wj">
+      <name>Conflagulations</name>
+      <released>2009</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>3</track-number>
+    <length>209.027000</length>
+    <popularity>0.01263</popularity>
+  </track>
+  <track href="spotify:track:4EdjXX3knikk26uIDx1Tnm">
+    <name>We Dont Know U - Feat. King Just, D.s.a. Aka Doctor Armour &amp; Fas</name>
+    <artist href="spotify:artist:6rCnYNo6OxbzZMepOB9iCk">
+      <name>Klass Initialzs</name>
+    </artist>
+    <id type="isrc">ushm20853317</id>
+    <album href="spotify:album:6nplJVMmW2j4wDCJ6LmWje">
+      <name>Freshmen Klass</name>
+      <released>2008</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>298.760000</length>
+    <popularity>0.00888</popularity>
+  </track>
+  <track href="spotify:track:3cApsUG5JwHN4IlqXSMaVt">
+    <name>City I'm In</name>
+    <artist href="spotify:artist:4sEPQBGjIt38aWnohZEtIa">
+      <name>I.N.F</name>
+    </artist>
+    <artist href="spotify:artist:0eayuW5zGMgvXCEmcP7ivq">
+      <name>Trouble</name>
+    </artist>
+    <artist href="spotify:artist:13l6dUGnnESrceQaCUqBpi">
+      <name>Flex-O</name>
+    </artist>
+    <artist href="spotify:artist:5vOANsB7NgwKUXKVVYNPgs">
+      <name>DSA</name>
+    </artist>
+    <id type="isrc">usx9p0654265</id>
+    <album href="spotify:album:3kkQv38lg9kLYPPyamMwjw">
+      <name>Street Hustle</name>
+      <released>2006</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>3</track-number>
+    <length>340.240000</length>
+    <popularity>0.00542</popularity>
+  </track>
+  <track href="spotify:track:0ZqUVjF9o0thk1WqtM0Eha">
+    <name>DSA - Original Mix</name>
+    <artist href="spotify:artist:4Y6Qa7yh13LgAnYs1CLyRW">
+      <name>Nicalai</name>
+    </artist>
+    <id type="isrc">GBKQU1029668</id>
+    <album href="spotify:album:1SsmfjfakHM6eBA4K6eK1w">
+      <name>Human Robot EP</name>
+      <released>2011</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>247.432000</length>
+    <popularity>0.00279</popularity>
+  </track>
+  <track href="spotify:track:4uaiAZ9Racsa4ygdcqCY1x">
+    <name>U Wit The A**</name>
+    <artist href="spotify:artist:4sEPQBGjIt38aWnohZEtIa">
+      <name>I.N.F</name>
+    </artist>
+    <artist href="spotify:artist:13l6dUGnnESrceQaCUqBpi">
+      <name>Flex-O</name>
+    </artist>
+    <artist href="spotify:artist:5vOANsB7NgwKUXKVVYNPgs">
+      <name>DSA</name>
+    </artist>
+    <id type="isrc">usx9p0654276</id>
+    <album href="spotify:album:3kkQv38lg9kLYPPyamMwjw">
+      <name>Street Hustle</name>
+      <released>2006</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>14</track-number>
+    <length>233.907000</length>
+    <popularity>0.00095</popularity>
+  </track>
+  <track href="spotify:track:6DHhsIHUBCIooYovVXtMfX">
+    <name>DSA</name>
+    <artist href="spotify:artist:210D1Vp7UZZCC3SniyAAzh">
+      <name>The Scutches</name>
+    </artist>
+    <id type="isrc">CAI660903007</id>
+    <album href="spotify:album:3KSBYtUrQVK433naS9SIym">
+      <name>The Scutches</name>
+      <released>2009</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>7</track-number>
+    <length>160.813000</length>
+    <popularity>0.00002</popularity>
+  </track>
+  <track href="spotify:track:6Obf5VfJeqp6qvxBx8XttF">
+    <name>pla migro dsa</name>
+    <artist href="spotify:artist:3v2oFhfyOgf1s1vbbT3UBC">
+      <name>Elektrokill</name>
+    </artist>
+    <id type="isrc">DEZ651109632</id>
+    <album href="spotify:album:4JjPelA0O17yDW7hCXvDWV">
+      <name>split</name>
+      <released>2008</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>17</track-number>
+    <length>72.000000</length>
+    <popularity>0.00000</popularity>
+  </track>
+  <track href="spotify:track:134gc6P51tuJLEMNTZ5YNc">
+    <name>Dsa Wissi Dounia Gnou</name>
+    <artist href="spotify:artist:3ZNErHQObhlSttnFnkChmL">
+      <name>Hermas Zopoula</name>
+    </artist>
+    <id type="isrc">US64G0905210</id>
+    <album href="spotify:album:4hanXmGKmoatr6kSpICjxC">
+      <name>Espoir</name>
+      <released>2009</released>
+      <availability>
+        <territories>AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IN IO IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ZZ</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>137.787000</length>
+    <popularity>0.00000</popularity>
+  </track>
+</tracks>
+<!-- Last-Modified: Expires: Mon, 07 Nov 2011 17:23:18 GMT -->

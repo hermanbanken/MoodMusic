@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>MoodMusic</title>
+	<link rel="stylesheet" href="../stylesheets/main.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="../stylesheets/moods.css" type="text/css" charset="utf-8">
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery.tagcanvas.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/moods.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<div id="site-container">
+		<div id="player" class="circle globe" width="350" height="350">
+			<div id="player-content">
+				<p id="welcome">Please select the mood you want to listen to from the moods in the circle on the right.</p>
+				<div id="now-playing">
+					Now playing mood <span id="mood"></span>:
+					<h3>DVNO by Justice</h3>
+					<a id="next" href="#">next</a> - <a id="playpause" href="#">pause</a> - <a id="prev" href="#">previous</a>
+				</div>
+			</div>
+		</div>
+		
+		<canvas id="globe" class="circle globe" width="350" height="350">
+			<ul>
+			</ul>
+		</canvas>
+	</div>
+	 
+</body>
+</html>
