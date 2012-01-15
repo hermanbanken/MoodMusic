@@ -2,7 +2,7 @@
 $(function(){
 	//Load the moods
 	getMoods();
-	$('#feedback').hide();
+	$('#feedback-container').hide();
 	$("#moods").change(changeMood);
 	$("#feedback-moods").change(feedbackMood);
 });
@@ -22,7 +22,7 @@ function populateCombobox(mds){
 	moods = mds;
 	
 	$("#moods").html('<option value="-1">Please select a mood to listen to</option>');
-	$("#feedback-moods").html("");
+	$("#feedback-moods").html('<option value="-1">Doesn\'t this song have this mood? Please select it here!</option>');
 	
 	for(i in moods){
 		$("#moods").append('<option value="'+i+'">'+moods[i]+'</option>');
@@ -33,8 +33,10 @@ function populateCombobox(mds){
 //Handler that detects a mood change
 function changeMood(e){
 	mood = getSelectedValue();
-	loadPlaylist(mood);
-	redrawMoods(mood);
+	if(mood != undefined){
+		loadPlaylist(mood);
+		redrawMoods(mood);	
+	}
 }
 
 //Returns the currently selected mood
@@ -66,7 +68,7 @@ function playPlaylist(){
 		//Embed and play the youtube movie
 		playYoutube(current.artist_name, current.title);
 		//Show the feedback section
-		$('#feedback').show();
+		$('#feedback-container').show();
 	}else{
 		setStatus("The playlist for the selected mood is empty");
 	}
@@ -97,14 +99,14 @@ function onytplayerStateChange(code){
 
 //Callback for the change event on the fedback mood combobox
 function feedbackMood(e){
-	console.log("lala");
 	feedback = getSelectedFeedback();
 	$.ajax({
 		type: "POST",
 		url: "../php/save.php?mode=feedback",
 		data: {mood: feedback, id: currentId},
 		success: function(e){
-			setStatus("Your submission has been registered, thanks for contributing!");
+			setStatus("Your submission (<em>"+feedback+"</em>) has been registered, thanks for contributing!");
+			$("#feedback-moods").val(-1);
 		}
 	})
 }
@@ -116,16 +118,20 @@ function getSelectedFeedback(){
 
 //Displays a message to the user for 1.5 seconds or permanently
 function setStatus(status, permanent){
+	$("#status").hide();
 	$("#status").html(status);
+	$("#status").slideDown();
 
 	if(!permanent){
 		setTimeout(function(){
+			$("#status").slideUp();
 			$("#status").html("");
-		},1500);	
+		},3000);	
 	}
 }
 
 //This function redraws all the occurences of the mood as text on the page (e.g: the current mood is: ... )
 function redrawMoods(mood){
-	$(".moods-text").html(mood);
+	$("#feedback-moods:first-child").remove();
+	$("#feedback-moods").html('<option value="-1">Doesn\'t this song have a '+mood+' mood? Please select it here!</option>')
 }

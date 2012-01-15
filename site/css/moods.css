@@ -1,59 +1,63 @@
-.circle {
-	height: 350px;
-	width: 350px;
-	-moz-border-radius: 175px;
-	-webkit-border-radius: 175px;
-	border-radius: 175px;
-	z-index: 98;
-}
-
-.globe{
-	display: block;
-	box-shadow: 0 0 15px rgba(0,0,0,1), inset 0 0 50px rgba(50,50,50,1);
-	background: rgba(1,1,1,0.5);
-	border: 1px solid gray;
-	z-index: 99;
-}
-
-div#site-container{
-	height: 350px;
-	width: 724px;
-	margin-top: -175px;
-	border: 1px solid red;
-}
-
-div#player{
-	float: left;
-	margin-right: 20px;
-}
-
-#player #player-content{
+#site-container{
+	width: 800px;
+	height: 610px;
 	margin: 0 auto;
-	margin-top: 70px;
-	height: 210px;
-	width: 270px;
-	text-align: center;
+	position: relative;
+	top: 50%;
+	margin-top: -305px;
 }
 
-p#welcome{
-	margin-top: 120px;
+select#moods{
+	height: 50px;
+	width: 780px;
+	margin: 10px;
+	border: 1px solid black;
 }
 
-#player #player-content h3{
-	font-size: 25px;
+#moods-container{
+	height: 70px;
+	border: 2px solid white;
+	border-radius: 5px;
+	background: rgba(0,0,0,0.2);
+	margin-bottom: 10px;
+}
+
+#status{
+	height: auto;
 	width: 100%;
+	text-align: center;
+	color: red;
 }
 
-#now-playing{
-	margin-top: 115px;
+#youtube-player-container{
+	height: auto;
+	width: 780px;
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+	background: rgba(0,0,0,0.2);
 }
 
-a{
-	color: white;
-	text-decoration: none;
+#youtube-player{
+	height: 400px;
+	width: 780px;
+	text-align: center;
+	line-height: 400px;
 }
 
-a:hover{
-	color: gray;
-	font-style: italic;
+#feedback-container{
+	height: 70px;
+	border: 2px solid white;
+	border-radius: 5px;
+	margin-top: 10px;
+	background: rgba(0,0,0,0.2);
 }
+
+#feedback-moods{
+	height: 50px;
+	width: 780px;
+	margin: 10px;
+	border: 1px solid black;
+}
+
