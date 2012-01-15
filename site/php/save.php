@@ -39,5 +39,23 @@ else if($_GET['mode'] == "neuralnetwork"){
 }
 else if($_GET['mode'] == "training")
 {
-	
+	//Check if the song needs to be removed
+	if(isset($_POST['remove']))
+	{
+		//Escape the strings
+		$escape_id			= mysql_real_escape_string($_POST['id']);
+
+		//Remove the song from the database
+		mysql_query("DELETE FROM `echonest` WHERE `id`='".$escape_id."'");
+		mysql_query("DELETE FROM `audio_summary` WHERE `echonest_id`='".$escape_id."'");
+	}
+	else
+	{
+		//Escape the strings
+		$escape_id			= mysql_real_escape_string($_POST['id']);
+		$escape_mood		= mysql_real_escape_string($_POST['mood']);
+		
+		//Add mood to database
+		mysql_query("INSERT INTO `audio_moods` VALUES ('".$escape_id."','".$escape_mood."','1')");
+	}
 }
