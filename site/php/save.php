@@ -95,8 +95,14 @@ else if($_GET['mode'] == "training")
 		$escape_mood		= mysql_real_escape_string($_POST['mood']);
 		
 		//Add mood to database
-		mysql_query("INSERT INTO `audio_moods` VALUES ('".$escape_id."','".$escape_mood."','1')");
+		mysql_query("INSERT INTO `audio_moods` VALUES ('".$escape_id."','".$escape_mood."','1','1')");
 	}
 }else if($_GET['mode'] == "feedback"){
 	//$_POST['id'] is the id of the song and $_POST['mood'] is the associated mood
+	//Escape the strings
+	$escape_id			= mysql_real_escape_string($_POST['id']);
+	$escape_mood		= mysql_real_escape_string($_POST['mood']);
+	
+	//Add mood to database
+	mysql_query("INSERT INTO `audio_moods` VALUES ('".$escape_id."','".$escape_mood."','1','1')");
 }
