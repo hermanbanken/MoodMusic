@@ -7,7 +7,7 @@ require_once('config.php');
 if($_GET['mode'] == "trainingset"){
 	//Create the moods return set
 	$moods		= array();
-	foreach(MOOD_LIST as $mood)
+	foreach($MOOD_LIST as $mood)
 		$moods[$mood]	= (float)0;
 
 	//Get all the mooded songs which are done by a person
@@ -54,11 +54,11 @@ else if($_GET['mode'] == "training")
 }
 else if($_GET['mode'] == "moods"){
 	//Return a list of moods (JSON)
-	print json_encode(MOOD_LIST);
+	print json_encode($MOOD_LIST);
 }
 else if($_GET['mode'] = "playlist"){
 	//Return a playlist with a mood that is in $_POST['mood']
-	$escape_mood	= mysql_real_escape_string($_GET['mood']);
+	$escape_mood	= mysql_real_escape_string($_POST['mood']);
 	$query			= mysql_query("SELECT DISTINCT `id`,`artist_name`,`title`,AVG(`rating`) as `avg_rating` FROM `echonest` JOIN `audio_moods` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'
 GROUP BY `echonest_id`");
 	$playlist		= array();
