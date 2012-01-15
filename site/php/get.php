@@ -73,6 +73,9 @@ GROUP BY `echonest_id`");
 			$playlist[]		= $song;
 	}
 	
+	//Shuffle the playlist
+	shuffle($playlist);
+	
 	//Return the playlist
 	print json_encode($playlist);
 }
