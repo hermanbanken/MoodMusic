@@ -7,7 +7,7 @@ class Controller_Welcome extends Controller {
 		$this->response->body(	
 			'hello, world!<br />Songs via '.
 		 	HTML::anchor('/song/list', '/song/list').
-			'<br />Individual songs via '. HTML::anchor('/song/id/102', '/song/id/<id>'));
+			'<br />Individual songs via '. HTML::anchor('/song/id/0', '/song/id/<id>'));
 	}
 
 } // End Welcome
