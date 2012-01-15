@@ -48,3 +48,22 @@ else if($_GET['mode'] == "training")
 	//Return the song
 	print json_encode($song);
 }
+
+if($_GET['mode'] == "moods"){
+	//Return a list of moods (JSON)
+	echo json_encode(array("happy", "sad", "cheerful", "BS"));
+}
+
+if($_GET['mode'] = "playlist"){
+	//Return a playlist with a mood that is in $_POST['mood']
+	$escape_mood	= mysql_real_escape_string($_POST['mood']);
+	$query			= mysql_query("SELECT DISTINCT `artist_name`,`title` FROM `audio_moods` JOIN `echonest` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'");
+	$playlist		= array();
+	
+	//Make the playlist
+	while($song = mysql_fetch_assoc($query))
+		$playlist[]		= $song;
+	
+	//Return the playlist
+	echo json_encode($playlist);
+}
