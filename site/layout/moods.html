@@ -9,7 +9,18 @@
 	<link rel="stylesheet" href="../css/moods.css" type="text/css" charset="utf-8">
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jquery.tagcanvas.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/swfobject.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/moods.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		function onYouTubePlayerReady(playerId) {
+			//Register the player
+			ytplayer = document.getElementById("youtube-player");
+			//Play the video
+			ytplayer.playVideo();
+			//Add a state listener to detect when a movie has finished
+			ytplayer.addEventListener("onStateChange", "onytplayerStateChange");
+		}
+	</script>
 </head>
 
 <body>
@@ -18,6 +29,8 @@
 		<select id="moods">
 			<option value="loading">Loading moods</option>
 		</select>
+		
+		<div id="status"></div>
 		
 		<fieldset>
 			<div id="youtube-player">
