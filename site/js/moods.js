@@ -21,7 +21,7 @@ function getMoods(){
 function populateCombobox(mds){
 	moods = mds;
 	
-	$("#moods").html("");
+	$("#moods").html('<option value="-1">Please select a mood to listen to</option>');
 	$("#feedback-moods").html("");
 	
 	for(i in moods){
@@ -57,15 +57,19 @@ function loadPlaylist(mood){
 
 //Plays the first song in the playlist
 function playPlaylist(){
-	//Get the first element of the array and add it to the end
-	current = playlist.shift();
-	playlist.push(current);
-	//Set the current id
-	currentId = current.id;
-	//Embed and play the youtube movie
-	playYoutube(current.artist_name, current.title);
-	//Show the feedback section
-	$('#feedback').show();
+	if(playlist.length > 0){
+		//Get the first element of the array and add it to the end
+		current = playlist.shift();
+		playlist.push(current);
+		//Set the current id
+		currentId = current.id;
+		//Embed and play the youtube movie
+		playYoutube(current.artist_name, current.title);
+		//Show the feedback section
+		$('#feedback').show();
+	}else{
+		setStatus("The playlist for the selected mood is empty");
+	}
 }
 
 //Plays a youtube video with a certain artist and title
