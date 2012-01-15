@@ -36,6 +36,8 @@ function changeMood(e){
 	if(mood != undefined){
 		loadPlaylist(mood);
 		redrawMoods(mood);	
+		//Select the first item
+		$("#feedback-moods").children().first().attr("selected","selected");
 	}
 }
 
