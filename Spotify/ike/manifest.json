@@ -1,0 +1,13 @@
+{
+	"AcceptedLinkTypes": ["album", "artist", "playlist", "track"],
+	"AppDescription": "Ike Project App",
+	"AppName": "Moods",
+	"AppURL": "http://home.hermanbanken.nl/ike/",
+	"BundleIdentifier": "ike",
+	"BundleType": "Application",
+	"BundleVersion": "0.1",
+	"RequiredInterface": 1,
+	"SupportedLanguages": "nl-NL",
+	"RequiredPermissions": [ "http://*.spotify.com", "http://spotify.com", "http://live", "http://localhost" ]
+	"VendorIdentifier": "nl.ike"
+}
