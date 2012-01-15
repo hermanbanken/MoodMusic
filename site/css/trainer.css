@@ -1,0 +1,28 @@
+#site-container{
+	height: 80px;
+	margin-top: -40px;
+}
+
+#submit{
+	padding: 10px;
+	background: rgba(255,255,255,0.2);
+	border: 2px solid white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#submit:hover{
+	cursor: pointer;
+	background: rgba(255,255,255,0.5);
+}
+
+#status{
+	margin-top: 10px;
+	text-align: center;
+}
+
+#loader{
+	margin: 0 auto;
+	display: block;
+	margin-top: 5px;
+}
