@@ -59,7 +59,7 @@ else if($_GET['mode'] == "moods"){
 else if($_GET['mode'] = "playlist"){
 	//Return a playlist with a mood that is in $_POST['mood']
 	$escape_mood	= mysql_real_escape_string($_GET['mood']);
-	$query			= mysql_query("SELECT DISTINCT `artist_name`,`title`,AVG(`rating`) as `avg_rating` FROM `echonest` JOIN `audio_moods` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'
+	$query			= mysql_query("SELECT DISTINCT `id`,`artist_name`,`title`,AVG(`rating`) as `avg_rating` FROM `echonest` JOIN `audio_moods` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'
 GROUP BY `echonest_id`");
 	$playlist		= array();
 	

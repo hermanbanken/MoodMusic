@@ -69,7 +69,6 @@ if($_GET['mode'] == "upload"){
 	//Save the moods
 	foreach($_POST['res'] as $mood => $value)
 		mysql_query("INSERT INTO `audio_moods` VALUES ('".$file['id']."','".mysql_real_escape_string($mood)."','".mysql_real_escape_string($value)."','0')");
-	
 }
 else if($_GET['mode'] == "neuralnetwork"){
 	//Save the neural netwok to a text file
