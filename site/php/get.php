@@ -45,7 +45,7 @@ if($_GET['mode'] == "moods"){
 	echo json_encode(array("happy", "sad", "cheerful", "BS"));
 }
 
-if($_GET['mode'] = "playlist"){
+if($_GET['mode'] == "playlist"){
 	//Return a playlist with a mood that is in $_POST['mood']
 	echo json_encode(array(array("avicii","levels"),array("rick astley","never gonna give you up")));
 }
