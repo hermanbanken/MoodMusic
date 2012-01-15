@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>MoodMusic</title>
+	<link rel="stylesheet" href="../css/main.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="../css/moods.css" type="text/css" charset="utf-8">
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery.tagcanvas.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/moods.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<div id="site-container" class="page">
+		Select a mood to listen to:
+		<select id="moods">
+			<option value="loading">Loading moods</option>
+		</select>
+		
+		<fieldset>
+			<div id="youtube-player">
+				
+			</div>
+			<span id="description">Please select a mood</span>
+		</fieldset>
+		
+		<div id="feedback">
+			Doesn't this song have a <em><span></span></em> mood? Please select it here: 
+			<select id="feedback-moods">
+				<option value="loading">Loading moods</option>
+			</select>
+		</div>
+		
+	</div>
+</body>
+</html>
