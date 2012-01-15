@@ -32,7 +32,17 @@ $(function(){
 	$.ajax({
 		url: "../resources/neuralnetwork.txt",
 		success: function(e){ 
-			NN.fromJSON($.parseJSON(e));
+			try{
+				NN.fromJSON($.parseJSON(e));
+				//Bind the handlers (for interaction)
+				upload_field.bind({
+				    dragover : addDraggingStyle,
+				    dragend	 : removeDraggingStyle,
+				    drop	 : getFiles 
+				});
+			}catch(e){
+				setStatus("The neural network could not be assembled. (JSON parse error)", true);
+			}
 		},
 		error: function(e){
 			setStatus("The neural network could not be loaded.", true);

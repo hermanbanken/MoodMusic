@@ -71,10 +71,14 @@ if($_GET['mode'] == "upload"){
 		mysql_query("INSERT INTO `audio_moods` VALUES ('".$file['id']."','".mysql_real_escape_string($mood)."','".mysql_real_escape_string($value)."','0')");
 }
 else if($_GET['mode'] == "neuralnetwork"){
-	//Save the neural netwok to a text file
-	$fp		= fopen("../resources/neuralnetwork.txt", "w+");
-	fwrite($fp, $_POST['network']);
-	fclose($fp);
+	try{
+		//Save the neural netwok to a text file
+		$fp		= fopen("../resources/neuralnetwork.txt", "w+");
+		fwrite($fp, json_encode($_POST['network']));
+		fclose($fp);
+	}catch(Exception $e) {
+		echo json_encode($e);
+	}
 }
 else if($_GET['mode'] == "training")
 {
