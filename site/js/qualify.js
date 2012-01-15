@@ -2,6 +2,23 @@ $(function(){
 	//Get the first song to qualify
 	$.get('../php/get.php?mode=training', show_song);
 	
+	getMoods(0;)
+	
+	//Get the moods from the DB
+	function getMoods(){
+		$.get("../php/get.php?mode=moods", populateCombobox);
+	}
+
+	//Load the moods into a combobox
+	function populateCombobox(mds){
+		moods = mds;
+		$("#moods").html("");
+
+		for(i in moods){
+			$("#moods").append('<option value="'+i+'">'+moods[i]+'</option>');
+		}
+	}
+	
 	//Store the song information in the database
 	function store_song(){
 		$.post('../php/save.php?mode=training', {id: $('#nest-id').val(), mood: $('#nest-mood').val()}, function(data) {

@@ -34,6 +34,7 @@ function populateCombobox(mds){
 function changeMood(e){
 	mood = getSelectedValue();
 	loadPlaylist(mood);
+	redrawMoods(mood);
 }
 
 //Returns the currently selected mood
@@ -41,6 +42,7 @@ function getSelectedValue(){
 	return moods[$("#moods").val()];
 }
 
+//Loads a plalist from the databse with a certain mood
 function loadPlaylist(mood){
 	$.ajax({
 		type: "POST",
@@ -117,4 +119,9 @@ function setStatus(status, permanent){
 			$("#status").html("");
 		},1500);	
 	}
+}
+
+//This function redraws all the occurences of the mood as text on the page (e.g: the current mood is: ... )
+function redrawMoods(mood){
+	$(".moods-text").html(mood);
 }
