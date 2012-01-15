@@ -46,7 +46,7 @@ if($_GET['mode'] == "trainingset"){
 else if($_GET['mode'] == "training")
 {
 	//Find a song without a mood
-	$query		= mysql_query("SELECT * FROM `echonest`,`audio_summary` WHERE `echonest`.`id` NOT IN (SELECT DISTINCT `echonest_id` FROM `audio_moods`) LIMIT 1");
+	$query		= mysql_query("SELECT * FROM `echonest` JOIN `audio_summary` ON `echonest`.`id`=`audio_summary`.`echonest_id` WHERE `echonest`.`id` NOT IN (SELECT DISTINCT `echonest_id` FROM `audio_moods`) LIMIT 1");
 	$song		= mysql_fetch_object($query);
 	
 	//Return the song
