@@ -66,6 +66,9 @@ if($_GET['mode'] == "upload"){
 	mysql_query("INSERT INTO `echonest` VALUES ('".$file['id']."','".$file['artist_id']."','".$file['artist']."','".$file['title']."')");
 	mysql_query("INSERT INTO `audio_summary` VALUES ('".$file['id']."','".$info['audiokey']."','".$info['mode']."','".$info['time_signature']."','".$info['duration']."','".$info['loudness']."','".$info['energy']."','".$info['tempo']."','".$info['audio_md5']."','".$info['analysis_url']."','".$info['danceability']."')");
 	
+	//Remove the old moods
+	mysql_query("DELETE FROM `audio_moods` WHERE `echonest_id`='".$file['id']."' AND `by_person`='0'");
+	
 	//Save the moods
 	foreach($_POST['res'] as $mood => $value)
 		mysql_query("INSERT INTO `audio_moods` VALUES ('".$file['id']."','".mysql_real_escape_string($mood)."','".mysql_real_escape_string($value)."','0')");
