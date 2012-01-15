@@ -13,22 +13,28 @@ if($_GET['mode'] == "trainingset"){
 		$moods[$mood['mood']]	= 0;
 
 	//Get all the mooded songs which are done by a person
-	$query		= mysql_query("SELECT * FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` AND `by_person`='1'");
+	$query		= mysql_query("SELECT DISTINCT `audio_moods`.`echonest_id`,`audiokey`,`mode`,`time_signature`,`loudness`,`energy`,`tempo`,`danceability` FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` WHERE `by_person`= '1'");
+	//$query		= mysql_query("SELECT * FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` AND `by_person`='1'");
 	$songs		= array();
 	
 	while($song = mysql_fetch_assoc($query))
 	{
 		$input						= array();
-		$input['audiokey']			= $song['audiokey']/11;
-		$input['mode']				= $song['mode'];
-		$input['time_signature']	= $song['time_signature'];
-		$input['loudness']			= ($song['loudness']+100)/200;
-		$input['energy']			= $song['energy'];
-		$input['tempo']				= $song['tempo']/500;
-		$input['danceability']		= $song['danceability'];
+		$input['audiokey']			= (float)$song['audiokey']/11;
+		$input['mode']				= (float)$song['mode'];
+		$input['time_signature']	= (float)$song['time_signature'];
+		$input['loudness']			= (float)($song['loudness']+100)/200;
+		$input['energy']			= (float)$song['energy'];
+		$input['tempo']				= (float)$song['tempo']/500;
+		$input['danceability']		= (float)$song['danceability'];
 		
-		$output					= $moods;
-		$out[$song['mood']]		= 1;
+		//Get all the moods for that song
+		$m_query					= mysql_query("SELECT `mood`, AVG(`rating`) AS `rating` FROM `audio_moods` WHERE `echonest_id`='".$song['echonest_id']."' AND `by_person`='1' GROUP BY `mood`");
+		$output						= $moods;
+		
+		//Set all the moods
+		while($mood = mysql_fetch_assoc($m_query))
+			$output[$mood['mood']]		= (float)$mood['rating'];
 		
 		$songs[]				= array(
 			'input' => $input,
@@ -56,12 +62,16 @@ else if($_GET['mode'] == "moods"){
 else if($_GET['mode'] = "playlist"){
 	//Return a playlist with a mood that is in $_POST['mood']
 	$escape_mood	= mysql_real_escape_string($_GET['mood']);
-	$query			= mysql_query("SELECT DISTINCT `artist_name`,`title` FROM `audio_moods` JOIN `echonest` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'");
+	$query			= mysql_query("SELECT DISTINCT `artist_name`,`title`,AVG(`rating`) as `avg_rating` FROM `echonest` JOIN `audio_moods` ON `echonest`.`id`=`audio_moods`.`echonest_id` WHERE `mood`='".$escape_mood."'
+GROUP BY `echonest_id`");
 	$playlist		= array();
 	
 	//Make the playlist
 	while($song = mysql_fetch_assoc($query))
-		$playlist[]		= $song;
+	{
+		if($song['avg_rating'] >= MOOD_TRESHOLD)
+			$playlist[]		= $song;
+	}
 	
 	//Return the playlist
 	print json_encode($playlist);

@@ -1,6 +1,6 @@
 <?php
 //Own settings
-define('MOOD_SAVETRIGGER', 0.8); //Add the mood if it is bigger then this value
+define('MOOD_TRESHOLD', 0.7); //If the mood value is higher then the treshold return it
 
 //Database settings
 define('MYSQL_SERVER', 'vps1.bluecode.nl');
