@@ -24,10 +24,8 @@ $(function(){
 		
 		//Onmessage gets triggered when the worker is done training the network
 		worker.onmessage = function(e) {
-			//Create a new neural network (so that the methods are re-initialized)
-			var NN = new brain.NeuralNetwork();
 			//Save the neural network
-			saveNN(NN.fromJSON(e.data));
+			saveNN(e.data);
 		};
 		
 		//Pass the trainingset to the worker and let it do its thing (train the network)
@@ -35,7 +33,7 @@ $(function(){
 	}
 
 	//Save the neural network
-	function saveNN(NN){
+	function saveNN(jsonNN){
 		setStatus("Storing the updated version of the neural network...");
 		
 		//Set a timeout to show the message (saving mostly takes less than a second, but then the user won't be able to read what's going on)
@@ -43,13 +41,14 @@ $(function(){
 			$.ajax({
 				type: "POST",
 				url: "../php/save.php?mode=neuralnetwork",
-				data: {"network": JSON.stringify(NN.toJSON())},
+				data: {"network": jsonNN},
 				success: function(e){
 					setStatus("The neural network is trained and saved");
 					displayLoader(false);
 				},
 				error: function(e){
-					setStatus("An error occured while saving the neural network");
+					setStatus("An error occured while saving the neural network "+e.responseText);
+					displayLoader(false);
 				}
 			});
 		}, 1000);
