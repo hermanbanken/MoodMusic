@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -8,7 +7,6 @@
 	<link rel="stylesheet" href="../css/main.css" type="text/css" charset="utf-8">
 	<link rel="stylesheet" href="../css/moods.css" type="text/css" charset="utf-8">
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/jquery.tagcanvas.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/swfobject.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/moods.js" type="text/javascript" charset="utf-8"></script>
 	<script>
@@ -24,6 +22,7 @@
 </head>
 
 <body>
+	<?php include("menu.php"); ?>
 	<div id="site-container">
 		<div id="moods-container">
 			<select id="moods">

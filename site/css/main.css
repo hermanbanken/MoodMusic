@@ -25,3 +25,37 @@ html{
 	top: 50%;
 	margin-top: -305px;
 }
+
+ul#menu{
+	background: rgba(0,0,0,0.7);
+	border-radius: 0 0 5px 5px;
+	padding: 10px;
+	width: 100px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 10px;
+	list-style-type: none;
+	border: 1px solid black;
+}
+
+ul#menu li{
+	color: white;
+	padding: 10px;
+}
+
+ul#menu li a{
+	color: white;
+	text-decoration: none;
+}
+
+ul#menu li:hover{
+	cursor: pointer;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+}
+
+ul#menu li:hover:last-child{
+	cursor: default;
+	background: none;
+}

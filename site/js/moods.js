@@ -80,7 +80,7 @@ function playPlaylist(){
 function playYoutube(artist, title){
 	//Search youtube for a video with a certain artist and title
 	id = $.get(
-		'https://gdata.youtube.com/feeds/api/videos?q='+artist+'+'+title+'&alt=json', 
+		'https://gdata.youtube.com/feeds/api/videos?q='+artist+'+'+title+'&alt=json&format=5', 
 		function(e){
 			id  = e.feed.entry[0].id.$t.replace("http://gdata.youtube.com/feeds/api/videos/","");
 			url = "http://www.youtube.com/v/"+id+"?enablejsapi=1&playerapiid=ytplayer&version=3";
