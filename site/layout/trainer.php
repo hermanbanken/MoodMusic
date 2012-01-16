@@ -9,7 +9,6 @@
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/brain.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/networktrainer.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/analyze.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>

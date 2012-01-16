@@ -26,8 +26,8 @@ $(function(){
 	$.ajax({
 		url: "../resources/neuralnetwork.txt",
 		success: function(e){ 
-			NN.fromJSON($.parseJSON(e));
-			
+			NN.fromJSON(JSON.parse(e));
+
 			//Bind the handlers (for interaction)
 			upload_field.bind({
 			    dragover : addDraggingStyle,
