@@ -77,7 +77,7 @@ else if($_GET['mode'] == "neuralnetwork"){
 	try{
 		//Save the neural netwok to a text file
 		$fp		= fopen("../resources/neuralnetwork.txt", "w+");
-		fwrite($fp, json_encode($_POST['network']));
+		fwrite($fp, $_POST['network']);
 		fclose($fp);
 	}catch(Exception $e) {
 		echo json_encode($e);

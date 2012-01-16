@@ -42,7 +42,7 @@ function saveNN(jsonNN){
 		$.ajax({
 			type: "POST",
 			url: "../php/save.php?mode=neuralnetwork",
-			data: {"network": jsonNN},
+			data: {"network": JSON.stringify(jsonNN)},
 			success: function(e){
 				setStatus("The neural network is trained and saved");
 				displayLoader(false);
