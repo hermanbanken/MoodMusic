@@ -9,14 +9,14 @@
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/brain.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/networktrainer.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/networktrainer.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/analyze.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
 	<?php include("menu.php"); ?>
 	<div id="site-container">
 		<div id="submit">Click here to train the neural network with the trainingset from the database</div>
-		<div id="submit">Click here to calculate the error made by the network</div>
+		<div id="error">Click here to calculate the error made by the network</div>
 		<div id="status"></div>
 		<img id="loader" src="../resources/ajax-loader.gif" />
 	</div>

@@ -257,10 +257,12 @@ $(function(){
 					//Sync the results with the database
 					syncResult(file, index);
 				}else{
-					console.log("Uploading and analyzing FAILED");
+					console.log("Uploading and analyzing failed");
+					newIndex = Object.keys(files.uploaded).length;
 					files.failed[newIndex] = files.local[index];
 					delete(files.local[index]);
 					redrawUploadField();
+					startUpload();
 				}
 			}
 			
@@ -318,7 +320,7 @@ $(function(){
 		setResult(index, "nn", file);
 		as = file.response.track.audio_summary;
 		res = NN.run({"audiokey": as.key/11, "mode": as.mode, "time_signature": as.time_signature, "loudness": (as.loudness+100)/200, "energy": as.energy, "tempo": as.tempo/500, "danceability": as.danceability});
-			
+		console.log("RESULT FROM NN: ",res);
 		//Sync the results with the database
 		setResult(index, 'sync', file);
 

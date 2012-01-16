@@ -3,7 +3,7 @@
 	margin-top: -40px;
 }
 
-#submit{
+#submit, #error{
 	padding: 10px;
 	background: rgba(255,255,255,0.2);
 	border: 2px solid white;
@@ -11,9 +11,13 @@
 	text-align: center;
 }
 
-#submit:hover{
+#submit:hover, #error:hover{
 	cursor: pointer;
 	background: rgba(255,255,255,0.5);
+}
+
+#error{
+	margin-top: 10px;
 }
 
 #status{
