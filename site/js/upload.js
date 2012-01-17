@@ -154,7 +154,8 @@ $(function(){
 				file = files.failed[index];
 
 				//Add the content
-				$("ul", upload_field).append("<li name=\"failed-"+index+"\">Failed to analyze <em>"+file.name+"</em></li>");
+				reason = file.reason ? "("+file.reason+")" : "";
+				$("ul", upload_field).append("<li name=\"failed-"+index+"\">Failed to analyze <em>"+file.name+"</em> "+reason+" </li>");
 			}
 
 			$("ul", upload_field).append("<hr>");
@@ -260,6 +261,7 @@ $(function(){
 					console.log("Uploading and analyzing failed");
 					newIndex = Object.keys(files.uploaded).length;
 					files.failed[newIndex] = files.local[index];
+					files.failed[newIndex]['reason'] = "analyzing failed at EchoNest";
 					delete(files.local[index]);
 					redrawUploadField();
 					startUpload();
@@ -277,6 +279,7 @@ $(function(){
 				//move the file from the local to the failed section of the files object
 				newIndex = Object.keys(files.uploaded).length;
 				files.failed[newIndex] = files.local[index];
+				files.failed[newIndex]['reason'] = "error while uploading the song to EchoNest "+e.responseText;
 				delete(files.local[index]);
 				
 				redrawUploadField();
@@ -320,10 +323,10 @@ $(function(){
 		setResult(index, "nn", file);
 		as = file.response.track.audio_summary;
 		res = NN.run({"audiokey": as.key/11, "mode": as.mode, "time_signature": as.time_signature, "loudness": (as.loudness+100)/200, "energy": as.energy, "tempo": as.tempo/500, "danceability": as.danceability});
-		console.log("RESULT FROM NN: ",res);
+
 		//Sync the results with the database
 		setResult(index, 'sync', file);
-
+		console.log("Sent to php:",{"res": res, "file": file.response});
 		$.ajax({
 			type: "POST",
 			url: "../php/save.php?mode=upload", 
@@ -343,6 +346,7 @@ $(function(){
 				//move the file from the local to the failed section of the files object
 				newIndex = Object.keys(files.uploaded).length;
 				files.failed[newIndex] = files.local[index];
+				files.failed[newIndex]['reason'] = "error while syncing with the database: "+e.responseText;
 				delete(files.local[index]);
 				
 				redrawUploadField();

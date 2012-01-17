@@ -47,10 +47,10 @@ Array
 
 if($_GET['mode'] == "upload"){	
 	//Escape the recieved data
-	$file['id']					= mysql_real_escape_string($_POST['file']['id']);
-	$file['artist_id']			= mysql_real_escape_string($_POST['file']['artist_id']);
-	$file['artist']				= mysql_real_escape_string($_POST['file']['artist']);
-	$file['title']				= mysql_real_escape_string($_POST['file']['title']);
+	$file['id']					= if(isset($_POST['file']['id']) : mysql_real_escape_string($_POST['file']['id']) ? null;
+	$file['artist_id']			= if(isset($_POST['file']['artist_id']) : mysql_real_escape_string($_POST['file']['artist_id']) ? null;
+	$file['artist']				= if(isset($_POST['file']['artist']) : mysql_real_escape_string($_POST['file']['artist']) ? "unknown";
+	$file['title']				= if(isset($_POST['file']['title']) : mysql_real_escape_string($_POST['file']['title']) ? "unknown";
 	$info['audiokey']			= mysql_real_escape_string($_POST['file']['audio_summary']['key']);
 	$info['mode']				= mysql_real_escape_string($_POST['file']['audio_summary']['mode']);
 	$info['time_signature']		= mysql_real_escape_string($_POST['file']['audio_summary']['time_signature']);
@@ -77,7 +77,7 @@ else if($_GET['mode'] == "neuralnetwork"){
 	try{
 		//Save the neural netwok to a text file
 		$fp		= fopen("../resources/neuralnetwork.txt", "w+");
-		fwrite($fp, $_POST['network']);
+		fwrite($fp, stripslashes($_POST['network']));
 		fclose($fp);
 	}catch(Exception $e) {
 		echo json_encode($e);

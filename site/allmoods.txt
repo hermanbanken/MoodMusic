@@ -1,0 +1,7 @@
+aggressive, ambient, angry, angst-ridden, bouncy, calming, carefree, cheerful, cold, complex, cool, dark, disturbing, dramatic, dreamy, eerie, elegant, energetic, enthusiastic, epic, fun, funky, futuristic, gentle, gleeful, gloomy, groovy, happy, harsh, haunting, humorous, hypnotic, industrial, intense, intimate, joyous, laid-back, light, lively, manic, meditation, melancholia, mellow, mystical, ominous, party music, passionate, pastoral, peaceful, playful, poignant, quiet, rebellious, reflective, relax, romantic, rowdy, sad, sentimental, sexy, smooth, soothing, sophisticated, spacey, spiritual, strange, sweet, theater, trippy, warm, whimsical
+
+aggressive, ambient, angry, bouncy, calming, cheerful, cold, cool, dark, dramatic, dreamy, energetic, funky, happy, intense, intimate, joyous, laid-back, light, lively, meditation, party music, peaceful, playful, relax, romantic, sad, sentimental, smooth, sweet, warm
+
+aggressive, ambient, calming, cheerful, cold, cool, dark, dramatic, dreamy, energetic, funky, happy, intense, intimate, joyous, laid-back, light, lively, meditation, party music, peaceful, playful, relax, romantic, sad, sentimental, smooth, sweet, warm
+
+aggressive, ambient, dramatic, dreamy, intense, funky, happy, romantic, laid-back, relaxing, party music, sad, smooth
