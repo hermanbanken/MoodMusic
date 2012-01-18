@@ -4,4 +4,4 @@ aggressive, ambient, angry, bouncy, calming, cheerful, cold, cool, dark, dramati
 
 aggressive, ambient, calming, cheerful, cold, cool, dark, dramatic, dreamy, energetic, funky, happy, intense, intimate, joyous, laid-back, light, lively, meditation, party music, peaceful, playful, relax, romantic, sad, sentimental, smooth, sweet, warm
 
-aggressive, ambient, dramatic, dreamy, intense, funky, happy, romantic, laid-back, relaxing, party music, sad, smooth
+aggressive, mystical, dramatic, dreamy, intense, funky, happy, romantic, relaxing, party music, sad, smooth, light

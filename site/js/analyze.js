@@ -30,17 +30,17 @@ $(function(){
 			// Fetch the trainingset from the database
 			$.ajax({
 				type: "GET",
-				url: "../php/get.php?mode=trainingset",
+				url: "../php/get.php?mode=testset",
 				success: runTests,
 				error: function(e){
-					setStatus("Could not assemble the trainingset, please try reloading the page", true);
+					setStatus("Could not assemble the trainingset, please try reloading the page. "+e.responseText, true);
 				}
 			});
 	}
 
 	//Runs the test set through the neural network
 	function runTests(testSet){
-		setStatus("Running tests");
+		setStatus("Running Mean Squared Error + Effective Error Test");
 		
 		mseres = findMSE(testSet);
 		err = effectiveError(testSet);

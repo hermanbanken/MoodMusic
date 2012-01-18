@@ -52,3 +52,6 @@ select#moods{
 	border: 1px solid black;
 }
 
+select{
+	font-size: 14px;
+}

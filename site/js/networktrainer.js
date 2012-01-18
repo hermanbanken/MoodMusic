@@ -2,7 +2,6 @@ $(function(){
 	$("#loader").hide();
 	$("#submit").click(function(){
 			setStatus("Gathering trainingset from the database...");
-			setStatus("");
 			$("#error-table-container").slideUp();
 			displayLoader(true);
 			//Fetch the trainingset from the database
