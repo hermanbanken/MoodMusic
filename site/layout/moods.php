@@ -36,8 +36,8 @@
 			<div id="youtube-player">
 				Select a mood to listen to above! If nothing happens, please install the latest version of the adobe flash player.
 			</div>
-			<div id="previous"></div>
-			<div id="next"></div>
+			<div id="previous" class="buttons"></div>
+			<div id="next" class="buttons"></div>
 		</div>
 
 		<div id="feedback-container">

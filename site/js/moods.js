@@ -73,8 +73,12 @@ function playPlaylist(){
 		playYoutube(current.artist_name, current.title);
 		//Show the feedback section
 		$('#feedback-container').show();
+		//Show the buttons
+		$('.buttons').show();
 	}else{
 		setStatus("The playlist for the selected mood is empty");
+		//Hide the buttons
+		$('.buttons').hide();
 	}
 }
 function previousFromPlaylist(){
@@ -83,7 +87,7 @@ function previousFromPlaylist(){
 	playlist.unshift(previous);
 	
 	if(previous.id == currentId){
-		previousFromPlayList();
+		previousFromPlaylist();
 	} else {
 		// Continue normal procedure
 		playPlaylist();

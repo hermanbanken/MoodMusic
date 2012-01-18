@@ -63,6 +63,7 @@ select#moods{
 	background: rgba(0,0,0,0.2) center no-repeat;
 	cursor:pointer;
 	-webkit-transition: all .5s;
+	display:none;
 }
 
 #next:hover, #previous:hover {
