@@ -131,9 +131,9 @@ $(function(){
 			dataType: 'jsonp',
 			success: function(info, t, xhr){
 				if(info.response.status.code == 0){
-					if(info.response.songs)
+					if(info.response.songs && info.response.songs.length > 0)
 						cb(s.SUCCESS, info.response.songs[0]);
-					if(info.response.artists)
+					if(info.response.artists && info.response.artists.length > 0)
 						cb(s.SUCCESS, info.response.artists[0]);
 				} else cb(s.UNKNOWN_ERROR, null);
 			},
@@ -211,7 +211,7 @@ $(function(){
 				file = files.uploaded[index];
 			
 				//Add the content
-				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist+"</em></li>");
+				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist_name+"</em></li>");
 			}
 		
 			$("ul", upload_field).append("<hr>");
@@ -256,7 +256,7 @@ $(function(){
 			var file = files.local[index],
 				cb_alt = function(){ upload(file, index); };
 				cb_suc = function(echo_data){
-					file.response = {track: echo_data};	
+					file.response = {track: echo_data};
 					syncResult(file, index);
 				};
 			// ID3 analyse method
