@@ -1,11 +1,12 @@
 $(function(){
 	
 	//Declare variables
-	var upload_field 		= $('#upload-field'), 	//Cache upload field
+	var APIKEY = "BWXBWVY34MOEXP2CG",
+		upload_field 		= $('#upload-field'), 	//Cache upload field
 		files  				= new Object(),			//Object to store all files
 		default_status 		= "Drag the audio files that you want to add to the program into this box and press the 'Upload and Analyze' button",	//Default status message
 		xhr,
-		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key=BWXBWVY34MOEXP2CG&bucket=audio_summary&filetype=",
+		echonest_url = "http://developer.echonest.com/api/v4/track/upload?api_key="+APIKEY+"&bucket=audio_summary&filetype=",
 		NN = new brain.NeuralNetwork();
 	
 	//The files are separated into three sections, the ones that are uploaded and analyzed, the oea that have failed and the ones that are only locally linked
@@ -108,6 +109,50 @@ $(function(){
 		return false;
 	}
 	
+	// Try to match ID3v1 tags from mp3 to Echonest
+	function tagsToEchonest(tags, cb){
+		var s = tagsToEchonest.status;
+		if(!tags.artist){
+			cb(s.NO_ARTIST, null);
+			return;
+		}
+		var url = "http://developer.echonest.com/api/v4/" + (tags.title && "song" || "artist") + "/search";
+		var data = {
+		    api_key: APIKEY, format: "jsonp", results: 1,
+		    artist: tags.artist,
+		};
+		if(tags.title){
+			data.title = tags.title;
+			data.bucket = "audio_summary";
+		}
+		
+		$.ajax(url, {
+			data: data, 
+			dataType: 'jsonp',
+			success: function(info, t, xhr){
+				if(info.response.status.code == 0){
+					if(info.response.songs && info.response.songs.length > 0)
+						cb(s.SUCCESS, info.response.songs[0]);
+					if(info.response.artists && info.response.artists.length > 0)
+						cb(s.SUCCESS, info.response.artists[0]);
+				} else cb(s.UNKNOWN_ERROR, null);
+			},
+			error: function(){
+				cb(s.AJAX_ERROR, null);
+			}
+		});
+	}
+	tagsToEchonest.status = {
+		SUCCESS: 0,
+		UNKNOWN_ERROR: 1,
+		NO_ARTIST: 2,
+		NOT_FOUND: 3,
+		AJAX_ERROR: 4,
+	};
+	//tagsToEchonest({ title: "On The Floor", artist: "Jennifer Lopez"}, function(s,d){
+	//	console.log(s, d);
+	//});
+	
 	//Adds the file to the files
 	function addFile(file){
 		if(filetype = isAudio(file)){
@@ -166,7 +211,7 @@ $(function(){
 				file = files.uploaded[index];
 			
 				//Add the content
-				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist+"</em></li>");
+				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist_name+"</em></li>");
 			}
 		
 			$("ul", upload_field).append("<hr>");
@@ -207,7 +252,25 @@ $(function(){
 		
 		//Upload the first file
 		for(index in files.local) {
-			upload(files.local[index], index);
+			// Alternative analyse method: uploading to EchoNest
+			var file = files.local[index],
+				cb_alt = function(){ upload(file, index); };
+				cb_suc = function(echo_data){
+					file.response = {track: echo_data};
+					syncResult(file, index);
+				};
+			// ID3 analyse method
+			ID3.loadTags(files.local[index], function(){
+				// Try to get loaded tags
+				var tags = ID3.getAllTags(file.name);
+				// Search on Echonest with these tags
+				tagsToEchonest(tags, function(code, data){
+					if(code == 0)
+						cb_suc(data);
+					else
+						cb_alt();
+				});
+			});
 			break;
 		}
 		
