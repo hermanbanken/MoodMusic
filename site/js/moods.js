@@ -5,6 +5,8 @@ $(function(){
 	$('#feedback-container').hide();
 	$("#moods").change(changeMood);
 	$("#feedback-moods").change(feedbackMood);
+	$("#previous").click(previousFromPlaylist);
+	$("#next").click(playPlaylist);
 });
 
 var moods = new Array();
@@ -73,6 +75,18 @@ function playPlaylist(){
 		$('#feedback-container').show();
 	}else{
 		setStatus("The playlist for the selected mood is empty");
+	}
+}
+function previousFromPlaylist(){
+	//Get the last element of the array and add it to the beginning
+	previous = playlist.pop();
+	playlist.unshift(previous);
+	
+	if(previous.id == currentId){
+		previousFromPlayList();
+	} else {
+		// Continue normal procedure
+		playPlaylist();
 	}
 }
 
