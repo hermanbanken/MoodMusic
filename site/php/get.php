@@ -84,7 +84,7 @@ else if($_GET['mode'] == "testset"){
 		$moods[$mood]	= (float)0;
 
 	//Get all the mooded songs which are done by a person
-	$query		= mysql_query("SELECT DISTINCT `audio_moods`.`echonest_id`,`audiokey`,`mode`,`time_signature`,`loudness`,`energy`,`tempo`,`danceability` FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` WHERE `by_person`= '1'");
+	$query		= mysql_query("SELECT DISTINCT `audio_moods`.`echonest_id`,`audiokey`,`mode`,`time_signature`,`loudness`,`energy`,`tempo`,`danceability` FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` WHERE `by_person`= '1' LIMIT 20");
 	//$query		= mysql_query("SELECT * FROM `audio_moods` JOIN `audio_summary` ON `audio_moods`.`echonest_id`=`audio_summary`.`echonest_id` AND `by_person`='1'");
 	$songs		= array();
 	

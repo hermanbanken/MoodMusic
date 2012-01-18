@@ -15,20 +15,8 @@ define("ECHONEST_APIKEY", "BWXBWVY34MOEXP2CG");
 mysql_connect(MYSQL_SERVER, MYSQL_USERNAME, MYSQL_PASSWORD);
 mysql_select_db(MYSQL_DATABASE);
 
-//Mood list
-$MOOD_LIST = array( 
-		"aggressive",
-		"ambient",
-		"dramatic",
-		"dreamy",
-		"intense",
-		"funky",
-		"happy",
-		"romantic",
-		"laid-back",
-		"relaxing",
-		"party music",
-		"sad",
-		"smooth"
-		);
+//Get the mood list
+$query		= mysql_query("SELECT `mood` FROM `config_moods`");
+while($mood = mysql_fetch_assoc($query))
+	$MOOD_LIST[]	= $mood['mood'];
 ?>
