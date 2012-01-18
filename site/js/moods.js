@@ -7,6 +7,10 @@ $(function(){
 	$("#feedback-moods").change(feedbackMood);
 	$("#previous").click(previousFromPlaylist);
 	$("#next").click(playPlaylist);
+	$(window).keyup(function(e){
+		var k = e.keyCode;
+		(k == 39 && playPlaylist || k == 37 && previousFromPlaylist)();
+	});
 });
 
 var moods = new Array();
