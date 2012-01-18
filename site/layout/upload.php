@@ -9,6 +9,8 @@
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/brain.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/upload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/binaryfile.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/id3.js" type="text/javascript" charset="utf-8"></script>
 	
 </head>
 
