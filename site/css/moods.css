@@ -22,7 +22,7 @@ select#moods{
 
 #youtube-player-container{
 	height: auto;
-	width: 780px;
+	width: 776px;
 	border: 2px solid white;
 	border-radius: 5px;
 	padding: 10px;
@@ -60,21 +60,23 @@ select#moods{
 	height:100%;
 	border: 2px solid white;
 	border-radius: 5px;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.2) center no-repeat;
 	cursor:pointer;
 	-webkit-transition: all .5s;
 }
 
 #next:hover, #previous:hover {
-	background: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.4);
 }
 
 #next {
 	right:-90px;
+	background-image:url(../resources/next.png);
 }
 
 #previous {
 	left:-90px;
+	background-image:url(../resources/prev.png);
 }
 
 select{
