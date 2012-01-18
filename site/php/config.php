@@ -17,9 +17,18 @@ mysql_select_db(MYSQL_DATABASE);
 
 //Mood list
 $MOOD_LIST = array( 
+		"aggressive",
+		"ambient",
+		"dramatic",
+		"dreamy",
+		"intense",
+		"funky",
 		"happy",
+		"romantic",
+		"laid-back",
+		"relaxing",
+		"party music",
 		"sad",
-		"cheerful",
-		"funny"
+		"smooth"
 		);
 ?>

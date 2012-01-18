@@ -52,7 +52,7 @@ function show_song(song){
 	$('#title').text(song['title']);
 	$("#name").text(song['artist_name']);
 	
-	$.get('https://gdata.youtube.com/feeds/api/videos?q='+song['artist_name']+'+'+song['title']+'&alt=json', function(ret){
+	$.get('https://gdata.youtube.com/feeds/api/videos?q='+song['artist_name']+'+'+song['title']+'&alt=json&format=5', function(ret){
 		document.getElementById("ytvideo").src = "http://www.youtube.com/embed/"+ret.feed.entry[0].id.$t.replace("http://gdata.youtube.com/feeds/api/videos/","");
 	});
 }
