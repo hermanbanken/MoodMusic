@@ -211,7 +211,7 @@ $(function(){
 				file = files.uploaded[index];
 			
 				//Add the content
-				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist_name+"</em></li>");
+				$("ul", upload_field).append("<li name=\"uploaded-"+index+"\">Done uploading and analyzing <em>"+file.response.track.title+"</em> by <em>"+file.response.track.artist+"</em></li>");
 			}
 		
 			$("ul", upload_field).append("<hr>");
