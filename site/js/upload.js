@@ -256,6 +256,15 @@ $(function(){
 			var file = files.local[index],
 				cb_alt = function(){ upload(file, index); };
 				cb_suc = function(echo_data){
+					// Convert song to track data
+					echo_data = {
+						id: echo_data.id,
+						artist_id: echo_data.artist_id,
+						artist: echo_data.artist_name,
+						title: echo_data.title,
+						audio_summary: echo_data.audio_summary
+					};
+					// Wrap
 					file.response = {track: echo_data};
 					syncResult(file, index);
 				};
