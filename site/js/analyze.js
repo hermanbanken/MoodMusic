@@ -127,7 +127,7 @@ $(function(){
 	function calcWinner(output){		
 		winners = new Array();
 		for(mood in output){
-			if(output[mood] > 0.7){
+			if(output[mood] > 0.3){
 				winners.push(mood);
 			}
 		}
